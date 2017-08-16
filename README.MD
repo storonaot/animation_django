@@ -71,3 +71,9 @@ python manage.py startapp app
 
 17. Создаем статичные файлы
 python manage.py collectstatic
+
+
+Доп пакеты
+pip install Pillow -  для работы с изображениями
+pip install django-imagekit ?
+pip install django-webpack-loader - подружить django и webpack
