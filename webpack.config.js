@@ -4,6 +4,21 @@ const BundleTracker = require('webpack-bundle-tracker')
 
 module.exports = {
   context: path.join(__dirname, 'app/frontend'),
+  // entry: [
+  //   // 'react-hot-loader/patch',
+  //   // activate HMR for React
+  //
+  //   'webpack-dev-server/client?http://localhost:8080',
+  //   // bundle the client for webpack-dev-server
+  //   // and connect to the provided endpoint
+  //
+  //   'webpack/hot/only-dev-server',
+  //   // bundle the client for hot reloading
+  //   // only- means to only hot reload for successful updates
+  //
+  //   './javascripts/index.js',
+  //   // the entry point of our app
+  // ],
   entry: './javascripts/index.js',
   output: {
     path: path.resolve(__dirname, 'public/javascripts/'),
@@ -16,16 +31,53 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.jsx?$|\.js$/,
+        test: /\.jsx?$/,
         exclude: [
           path.resolve(__dirname, 'public'),
           path.resolve(__dirname, 'node_modules')
         ],
         loader: 'babel-loader'
+        // query: {
+        //   presets: ['es2015', 'react']
+        // }
+      },
+      {
+        test: /\.js?$/,
+        exclude: [
+          path.resolve(__dirname, 'public'),
+          path.resolve(__dirname, 'node_modules')
+        ],
+        loader: 'babel-loader'
+        // query: {
+        //   presets: ['es2015', 'react']
+        // }
       },
       {
         test: /\.css$/,
         use: ['style-loader', 'css-loader']
+      },
+
+      {
+        test: /\.sss$/,
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 1,
+              modules: true,
+              localIndentName: '[name]__[local]___[hash:base64:5]'
+            }
+          },
+          {
+            loader: 'postcss-loader',
+            options: {
+              config: {
+                path: './postcss.config.js'
+              }
+            }
+          }
+        ]
       },
       {
         test: /\.jpe?g$|\.gif$|\.png$|\.svg$|\.woff$|\.ttf$|\.wav$|\.mp3$/,
@@ -47,7 +99,7 @@ module.exports = {
       path.resolve(__dirname, 'node_modules'),
       path.resolve(__dirname, 'app/frontend/components')
     ],
-    extensions: ['.js', '.css', '.jsx']
+    extensions: ['.js', '.css', '.jsx', '.sss']
   },
   plugins: [
     new webpack.ProvidePlugin({
