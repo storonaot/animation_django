@@ -8,9 +8,16 @@ import { syncHistoryWithStore } from 'react-router-redux'
 
 import App from 'App'
 
+import reducer from 'store/reducers'
+
+const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk)))
+const history = syncHistoryWithStore(hashHistory, store)
+
 render(
-  <Router history={hashHistory}>
-    <Route path="/" component={App}></Route>
-  </Router>,
+  <Provider store={store}>
+    <Router history={history}>
+      <Route path="/" component={App}></Route>
+    </Router>
+  </Provider>,
   document.getElementById('root')
 )

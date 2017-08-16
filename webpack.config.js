@@ -37,9 +37,6 @@ module.exports = {
           path.resolve(__dirname, 'node_modules')
         ],
         loader: 'babel-loader'
-        // query: {
-        //   presets: ['es2015', 'react']
-        // }
       },
       {
         test: /\.js?$/,
@@ -48,9 +45,6 @@ module.exports = {
           path.resolve(__dirname, 'node_modules')
         ],
         loader: 'babel-loader'
-        // query: {
-        //   presets: ['es2015', 'react']
-        // }
       },
       {
         test: /\.css$/,
@@ -97,7 +91,7 @@ module.exports = {
   resolve: {
     modules: [
       path.resolve(__dirname, 'node_modules'),
-      path.resolve(__dirname, 'app/frontend/components')
+      path.resolve(__dirname, './app/frontend/components')
     ],
     extensions: ['.js', '.css', '.jsx', '.sss']
   },
