@@ -5,7 +5,7 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^films/', include("app.urls", namespace='films'))
+    url(r'^films/', include("app.urls", namespace='films')),
 ]
 
 if settings.DEBUG:

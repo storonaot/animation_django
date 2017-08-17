@@ -1,9 +1,12 @@
 from django.contrib import messages
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.shortcuts import render, get_object_or_404, redirect
 
 from .forms import FilmForm
 from .models import Film
+
+# def test_test(request):
+#     return JsonResponse([1, 2, 3], safe=False)
 
 def film_create(request):
     form = FilmForm(request.POST or None)

@@ -3,12 +3,10 @@
     "function-calc-no-unspaced-operator": true,
     "function-linear-gradient-no-nonstandard-direction": true,
     "string-no-newline": true,
-    "property-no-unknown": true,
     "keyframe-declaration-no-important": true,
     "declaration-block-no-duplicate-properties": true,
     "declaration-block-no-redundant-longhand-properties": true,
     "declaration-block-no-shorthand-property-overrides": true,
-    "block-no-empty": true,
     "selector-pseudo-class-no-unknown": true,
     "selector-pseudo-element-no-unknown": true,
     "selector-type-no-unknown": true,
@@ -76,7 +74,6 @@
     "at-rule-name-space-after": "always",
     "comment-empty-line-before": "never",
     "comment-whitespace-inside": "always",
-    "indentation": 2,
-    "no-missing-end-of-source-newline": true
+    "indentation": 2
   }
 }

@@ -7,7 +7,6 @@ import thunk from 'redux-thunk'
 import { syncHistoryWithStore } from 'react-router-redux'
 
 import App from 'App'
-
 import reducer from 'store/reducers'
 
 const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk)))
