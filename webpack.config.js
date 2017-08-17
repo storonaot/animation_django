@@ -1,21 +1,22 @@
 const path = require('path')
 const webpack = require('webpack')
 const BundleTracker = require('webpack-bundle-tracker')
+const StyleLintPlugin = require('stylelint-webpack-plugin')
 
 module.exports = {
   context: path.join(__dirname, 'app/frontend'),
   entry: [
     'react-hot-loader/patch',
-    `webpack-dev-server/client?http://localhost:8080`,
+    'webpack-dev-server/client?http://localhost:8080',
     'webpack/hot/only-dev-server',
-    './javascripts/index.js',
+    './javascripts/index.js'
   ],
   // entry: './javascripts/index.js',
   output: {
     path: path.resolve(__dirname, 'public/javascripts/'),
     publicPath: '/',
     // filename: "[name]-[hash].js"
-    filename: "[name].js"
+    filename: '[name].js'
     // filename: 'javascripts/[name].bundle.js',
     // chunkFilename: 'javascripts/[id].bundle.js',
   },
@@ -95,6 +96,10 @@ module.exports = {
     new BundleTracker({
       path: __dirname,
       filename: './config/webpack-stats.json'
+    }),
+    new StyleLintPlugin({
+      configFile: './.stylelintrc',
+      syntax: 'sugarss'
     })
   ],
   devServer: {
