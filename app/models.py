@@ -58,12 +58,12 @@ class DVD(models.Model):
     title = models.CharField(max_length=200)
     original_title = models.CharField(max_length=200)
     description = models.TextField()
-    cover = models.ForeignKey(Cover, default=1)
+    cover = models.ForeignKey(Cover, blank=True)
 
 class Serial(models.Model):
     title = models.CharField(max_length=200)
     original_title = models.CharField(max_length=200)
-    cover = models.ForeignKey(Cover, default=1)
+    cover = models.ForeignKey(Cover, blank=True)
     studios = models.ManyToManyField(Studio)
     directors = models.ManyToManyField(Director)
     countries = models.ManyToManyField(Country)
@@ -71,7 +71,7 @@ class Serial(models.Model):
 class Season(models.Model):
     title = models.CharField(max_length=200)
     number = models.PositiveIntegerField(default=1)
-    cover = models.ForeignKey(Cover, default=1)
+    cover = models.ForeignKey(Cover, blank=True)
     serial = models.ForeignKey(Serial, default=1)
 
 class Mediacontainer(models.Model):
@@ -88,19 +88,19 @@ class Film(models.Model):
     original_title = models.CharField(max_length=200)
     description = models.TextField()
     time_ms = models.PositiveIntegerField(default=2)
-    cover = models.ForeignKey(Cover, default=1)
+    cover = models.ForeignKey(Cover, blank=True)
     videoformat = models.ForeignKey(Videoformat, default=1)
     original_language = models.ForeignKey(Language, default=1)
     dvd = models.ForeignKey(DVD, null=True, blank=True)
     serial = models.ForeignKey(Serial, null=True, blank=True)
     season = models.ForeignKey(Season, null=True, blank=True)
-    mediacontainer = models.ForeignKey(Mediacontainer, default=1)
-    countries = models.ManyToManyField(Country)
-    directors = models.ManyToManyField(Director)
-    studios = models.ManyToManyField(Studio)
-    screenshots = models.ManyToManyField(Screenshot)
-    subtitles = models.ManyToManyField(Subtitles)
-    audiotracks = models.ManyToManyField(Audiotrack)
+    mediacontainer = models.ForeignKey(Mediacontainer, blank=True)
+    countries = models.ManyToManyField(Country, blank=True)
+    directors = models.ManyToManyField(Director, blank=True)
+    studios = models.ManyToManyField(Studio, blank=True)
+    screenshots = models.ManyToManyField(Screenshot, blank=True)
+    subtitles = models.ManyToManyField(Subtitles, blank=True)
+    audiotracks = models.ManyToManyField(Audiotrack, blank=True)
 
     def __str__(self):
         return self.title

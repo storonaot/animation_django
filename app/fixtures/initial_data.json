@@ -1,0 +1,45 @@
+[
+
+  {
+    "model": "app.studio",
+    "pk": 1,
+    "fields": {
+      "title": "Studio 1"
+    }
+  },
+  {
+    "model": "app.studio",
+    "pk": 2,
+    "fields": {
+      "title": "Studio 2"
+    }
+  },
+  {
+    "model": "app.studio",
+    "pk": 3,
+    "fields": {
+      "title": "Studio 3"
+    }
+  },
+  {
+    "model": "app.studio",
+    "pk": 4,
+    "fields": {
+      "title": "Studio 4"
+    }
+  },
+  {
+    "model": "app.studio",
+    "pk": 5,
+    "fields": {
+      "title": "Studio 5"
+    }
+  },
+  {
+    "model": "app.studio",
+    "pk": 6,
+    "fields": {
+      "title": "Studio 5"
+    }
+  }
+]
