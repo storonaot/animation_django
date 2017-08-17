@@ -1,5 +1,5 @@
 import { render } from 'react-dom'
-import { Router, Route, IndexRoute, hashHistory } from 'react-router'
+import { Router, Route, hashHistory } from 'react-router'
 import { Provider } from 'react-redux'
 import { createStore, applyMiddleware } from 'redux'
 import { composeWithDevTools } from 'redux-devtools-extension'
@@ -16,7 +16,7 @@ const history = syncHistoryWithStore(hashHistory, store)
 render(
   <Provider store={store}>
     <Router history={history}>
-      <Route path="/" component={App}></Route>
+      <Route path="/" component={App} />
     </Router>
   </Provider>,
   document.getElementById('root')
