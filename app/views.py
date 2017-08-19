@@ -3,7 +3,9 @@ from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.shortcuts import render, get_object_or_404, redirect
 
 from .forms import FilmForm
-from .models import Film
+# from .models import Film
+from app.models.film import Film
+
 
 # def test_test(request):
 #     return JsonResponse([1, 2, 3], safe=False)

@@ -34,7 +34,13 @@ class Migration(migrations.Migration):
             name='Cover',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('upload_path', models.ImageField(blank=True, max_length=256, null=True, upload_to=app.models.Cover.get_file_path, verbose_name='Poster')),
+                ('upload_path', models.ImageField(
+                    blank=True,
+                    max_length=256,
+                    null=True,
+                    upload_to=app.models.cover.Cover.get_file_path,
+                    verbose_name='Poster'
+                )),
             ],
         ),
         migrations.CreateModel(
@@ -89,7 +95,7 @@ class Migration(migrations.Migration):
             name='Screenshot',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('upload_path', models.ImageField(blank=True, max_length=256, null=True, upload_to=app.models.Screenshot.get_file_path, verbose_name='Poster')),
+                ('upload_path', models.ImageField(blank=True, max_length=256, null=True, upload_to=app.models.screenshot.Screenshot.get_file_path, verbose_name='Poster')),
             ],
         ),
         migrations.CreateModel(
