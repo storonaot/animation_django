@@ -73,8 +73,14 @@ class Language(models.Model):
 class Mediacontainer(models.Model):
     title = models.CharField(max_length=200)
 
+    def __str__(self):
+        return self.title
+
 class Audiotrack(models.Model):
-    title = models.CharField(max_length=200)
+    title = models.CharField(max_length=200, unique=True)
+
+    def __str__(self):
+        return self.title
 
 class Subtitles(models.Model):
     language = models.ForeignKey(Language, default=1)

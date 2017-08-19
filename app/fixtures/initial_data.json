@@ -2545,5 +2545,83 @@
       "title": "японский",
       "code": "ja"
     }
+  },
+  {
+    "model": "app.mediacontainer",
+    "pk": 1,
+    "fields": {
+      "title": ".mkv"
+    }
+  },
+  {
+    "model": "app.mediacontainer",
+    "pk": 2,
+    "fields": {
+      "title": ".mpg"
+    }
+  },
+  {
+    "model": "app.mediacontainer",
+    "pk": 3,
+    "fields": {
+      "title": ".avi"
+    }
+  },
+  {
+    "model": "app.mediacontainer",
+    "pk": 4,
+    "fields": {
+      "title": ".mp4"
+    }
+  },
+  {
+    "model": "app.audiotrack",
+    "pk": 1,
+    "fields": {
+      "title": "Cartoon Network"
+    }
+  },
+  {
+    "model": "app.audiotrack",
+    "pk": 2,
+    "fields": {
+      "title": "Зебуро"
+    }
+  },
+  {
+    "model": "app.audiotrack",
+    "pk": 3,
+    "fields": {
+      "title": "Т.О Друзей"
+    }
+  },
+  {
+    "model": "app.audiotrack",
+    "pk": 4,
+    "fields": {
+      "title": "Сыендук"
+    }
+  },
+  {
+    "model": "app.audiotrack",
+    "pk": 5,
+    "fields": {
+      "title": "REN_TV"
+    }
+  },
+  {
+    "model": "app.audiotrack",
+    "pk": 6,
+    "fields": {
+      "title": "LostFilm"
+    }
+  },
+  {
+    "model": "app.audiotrack",
+    "pk": 7,
+    "fields": {
+      "title": "Кубик в Кубе"
+    }
   }
+
 ]
