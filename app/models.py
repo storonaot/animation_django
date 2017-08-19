@@ -48,24 +48,42 @@ class Country(models.Model):
         return self.title
 
 class Director(models.Model):
-    name = models.CharField(max_length=200)
-    original_name = models.CharField(max_length=200)
+    name = models.CharField(max_length=200, null=True, blank=True, unique=True)
+    original_name = models.CharField(max_length=200, unique=True)
+
+    def __str__(self):
+        return self.name or self.original_name
 
 class Videoformat(models.Model):
     title = models.CharField(max_length=200)
-    resolution = models.CharField(max_length=200)
+    resolution = models.CharField(max_length=200, unique=True)
     ratio = models.CharField(max_length=200)
-    format = models.CharField(max_length=200)
+    format = models.CharField(max_length=200, unique=True)
+
+    def __str__(self):
+        return "%s (%s)" % (self.resolution, self.format)
 
 class Language(models.Model):
+    title = models.CharField(max_length=200, unique=True)
+    code = models.CharField(max_length=2, unique=True)
+
+    def __str__(self):
+        return "%s (%s)" % (self.title, self.code)
+
+class Mediacontainer(models.Model):
     title = models.CharField(max_length=200)
-    alias = models.CharField(max_length=200)
+
+class Audiotrack(models.Model):
+    title = models.CharField(max_length=200)
+
+class Subtitles(models.Model):
+    language = models.ForeignKey(Language, default=1)
 
 class DVD(models.Model):
     title = models.CharField(max_length=200)
     original_title = models.CharField(max_length=200)
     description = models.TextField(blank=True, null=True)
-    cover = models.ForeignKey(Cover, blank=True)
+    cover = models.ForeignKey(Cover, blank=True, null=True)
 
 class Serial(models.Model):
     title = models.CharField(max_length=200)
@@ -83,15 +101,6 @@ class Season(models.Model):
     start_date = models.DateField(default=date.today)
     cover = models.ForeignKey(Cover, blank=True)
     serial = models.ForeignKey(Serial, default=1)
-
-class Mediacontainer(models.Model):
-    title = models.CharField(max_length=200)
-
-class Audiotrack(models.Model):
-    title = models.CharField(max_length=200)
-
-class Subtitles(models.Model):
-    language = models.ForeignKey(Language, default=1)
 
 class Film(models.Model):
     title = models.CharField(max_length=200)
