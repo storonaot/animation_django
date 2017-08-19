@@ -1,5 +1,6 @@
 from django.db import models
 from django.core.urlresolvers import reverse
+from datetime import date
 
 from uuid import uuid4
 import os
@@ -34,11 +35,17 @@ class Screenshot(models.Model):
     )
 
 class Studio(models.Model):
-    title = models.CharField(max_length=200)
+    title = models.CharField(max_length=200, unique=True)
+
+    def __str__(self):
+        return self.title
 
 class Country(models.Model):
-    title = models.CharField(max_length=200)
-    alias = models.CharField(max_length=10)
+    title = models.CharField(max_length=200, unique=True)
+    code = models.CharField(max_length=5, unique=True)
+
+    def __str__(self):
+        return self.title
 
 class Director(models.Model):
     name = models.CharField(max_length=200)
@@ -57,13 +64,15 @@ class Language(models.Model):
 class DVD(models.Model):
     title = models.CharField(max_length=200)
     original_title = models.CharField(max_length=200)
-    description = models.TextField()
+    description = models.TextField(blank=True, null=True)
     cover = models.ForeignKey(Cover, blank=True)
 
 class Serial(models.Model):
     title = models.CharField(max_length=200)
     original_title = models.CharField(max_length=200)
-    cover = models.ForeignKey(Cover, blank=True)
+    start_date = models.DateField(default=date.today)
+    end_date = models.DateField(default=date.today)
+    cover = models.ForeignKey(Cover, blank=True, null=True)
     studios = models.ManyToManyField(Studio)
     directors = models.ManyToManyField(Director)
     countries = models.ManyToManyField(Country)
@@ -71,6 +80,7 @@ class Serial(models.Model):
 class Season(models.Model):
     title = models.CharField(max_length=200)
     number = models.PositiveIntegerField(default=1)
+    start_date = models.DateField(default=date.today)
     cover = models.ForeignKey(Cover, blank=True)
     serial = models.ForeignKey(Serial, default=1)
 
@@ -88,6 +98,7 @@ class Film(models.Model):
     original_title = models.CharField(max_length=200)
     description = models.TextField()
     time_ms = models.PositiveIntegerField(default=2)
+    release_date = models.DateField(default=date.today)
     cover = models.ForeignKey(Cover, blank=True)
     videoformat = models.ForeignKey(Videoformat, default=1)
     original_language = models.ForeignKey(Language, default=1)

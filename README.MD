@@ -77,3 +77,6 @@ python manage.py collectstatic
 pip install Pillow -  для работы с изображениями
 pip install django-imagekit ?
 pip install django-webpack-loader - подружить django и webpack
+
+Сиды
+manage.py loaddata initial_data.json

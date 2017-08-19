@@ -1,45 +1,1032 @@
 [
-
   {
     "model": "app.studio",
     "pk": 1,
     "fields": {
-      "title": "Studio 1"
+      "title": "Cartoon Network"
     }
   },
   {
     "model": "app.studio",
     "pk": 2,
     "fields": {
-      "title": "Studio 2"
+      "title": "Cartoon Network Studios"
     }
   },
   {
     "model": "app.studio",
     "pk": 3,
     "fields": {
-      "title": "Studio 3"
+      "title": "Disney Channel"
     }
   },
   {
     "model": "app.studio",
     "pk": 4,
     "fields": {
-      "title": "Studio 4"
+      "title": "Frederator Studios"
     }
   },
   {
     "model": "app.studio",
     "pk": 5,
     "fields": {
-      "title": "Studio 5"
+      "title": "Augenblick Studios"
     }
   },
   {
     "model": "app.studio",
     "pk": 6,
     "fields": {
-      "title": "Studio 5"
+      "title": "Big Jump Productions"
+    }
+  },
+  {
+    "model": "app.studio",
+    "pk": 7,
+    "fields": {
+      "title": "Tookie Wilson Productions"
+    }
+  },
+  {
+    "model": "app.studio",
+    "pk": 8,
+    "fields": {
+      "title": "Walt Disney Television Animation"
+    }
+  },
+  {
+    "model": "app.studio",
+    "pk": 9,
+    "fields": {
+      "title": "Hothouse Productions"
+    }
+  },
+  {
+    "model": "app.studio",
+    "pk": 10,
+    "fields": {
+      "title": "Harmonius Claptrap"
+    }
+  },
+  {
+    "model": "app.studio",
+    "pk": 11,
+    "fields": {
+      "title": "Justin Roiland's Solo Vanity Card Productions"
+    }
+  },
+  {
+    "model": "app.studio",
+    "pk": 12,
+    "fields": {
+      "title": "Starburns Industries"
+    }
+  },
+  {
+    "model": "app.studio",
+    "pk": 13,
+    "fields": {
+      "title": "Williams Street"
+    }
+  },
+  {
+    "model": "app.studio",
+    "pk": 14,
+    "fields": {
+      "title": "20th Century Fox Animation"
+    }
+  },
+  {
+    "model": "app.studio",
+    "pk": 15,
+    "fields": {
+      "title": "20th Century Fox Television"
+    }
+  },
+  {
+    "model": "app.studio",
+    "pk": 16,
+    "fields": {
+      "title": "Curiosity Company, The"
+    }
+  },
+  {
+    "model": "app.studio",
+    "pk": 17,
+    "fields": {
+      "title": "Fox Television Animation"
+    }
+  },
+  {
+    "model": "app.studio",
+    "pk": 18,
+    "fields": {
+      "title": "Gracie Films"
+    }
+  },
+  {
+    "model": "app.studio",
+    "pk": 19,
+    "fields": {
+      "title": "Daron Nefcy Productions"
+    }
+  },
+  {
+    "model": "app.studio",
+    "pk": 20,
+    "fields": {
+      "title": "Disney XD"
+    }
+  },
+  {
+    "model": "app.studio",
+    "pk": 21,
+    "fields": {
+      "title": "Titmouse"
+    }
+  },
+  {
+    "model": "app.studio",
+    "pk": 22,
+    "fields": {
+      "title": "Canal+ [fr]"
+    }
+  },
+  {
+    "model": "app.studio",
+    "pk": 23,
+    "fields": {
+      "title": "Lascars Productions"
+    }
+  },
+  {
+    "model": "app.studio",
+    "pk": 24,
+    "fields": {
+      "title": "MCM"
+    }
+  },
+  {
+    "model": "app.studio",
+    "pk": 25,
+    "fields": {
+      "title": "Rigolo Films 2000"
+    }
+  },
+  {
+    "model": "app.studio",
+    "pk": 26,
+    "fields": {
+      "title": "Media Rights Capital"
+    }
+  },
+  {
+    "model": "app.studio",
+    "pk": 27,
+    "fields": {
+      "title": "Wild Brain Inc."
+    }
+  },
+  {
+    "model": "app.country",
+    "pk": 1,
+    "fields": {
+      "title": "Австралия",
+      "code": "AUS"
+    }
+  },
+  {
+    "model": "app.country",
+    "pk": 2,
+    "fields": {
+      "title": "Австрия",
+      "code": "AUT"
+    }
+  },
+  {
+    "model": "app.country",
+    "pk": 3,
+    "fields": {
+      "title": "Азербайджан",
+      "code": "AZE"
+    }
+  },
+  {
+    "model": "app.country",
+    "pk": 4,
+    "fields": {
+      "title": "Албания",
+      "code": "ALB"
+    }
+  },
+  {
+    "model": "app.country",
+    "pk": 5,
+    "fields": {
+      "title": "Алжир",
+      "code": "DZA"
+    }
+  },
+  {
+    "model": "app.country",
+    "pk": 6,
+    "fields": {
+      "title": "Аргентина",
+      "code": "ARG"
+    }
+  },
+  {
+    "model": "app.country",
+    "pk": 7,
+    "fields": {
+      "title": "Армения",
+      "code": "ARM"
+    }
+  },
+  {
+    "model": "app.country",
+    "pk": 8,
+    "fields": {
+      "title": "Афганистан",
+      "code": "AFG"
+    }
+  },
+  {
+    "model": "app.country",
+    "pk": 9,
+    "fields": {
+      "title": "Бангладеш",
+      "code": "BGD"
+    }
+  },
+  {
+    "model": "app.country",
+    "pk": 10,
+    "fields": {
+      "title": "Барбадос",
+      "code": "BRB"
+    }
+  },
+  {
+    "model": "app.country",
+    "pk": 11,
+    "fields": {
+      "title": "Беларусь",
+      "code": "BLR"
+    }
+  },
+  {
+    "model": "app.country",
+    "pk": 12,
+    "fields": {
+      "title": "Бельгия",
+      "code": "BEL"
+    }
+  },
+  {
+    "model": "app.country",
+    "pk": 13,
+    "fields": {
+      "title": "Болгария",
+      "code": "BGR"
+    }
+  },
+  {
+    "model": "app.country",
+    "pk": 14,
+    "fields": {
+      "title": "Боливия",
+      "code": "BOL"
+    }
+  },
+  {
+    "model": "app.country",
+    "pk": 15,
+    "fields": {
+      "title": "Бразилия",
+      "code": "BRA"
+    }
+  },
+  {
+    "model": "app.country",
+    "pk": 16,
+    "fields": {
+      "title": "Великобритания",
+      "code": "GBR"
+    }
+  },
+  {
+    "model": "app.country",
+    "pk": 17,
+    "fields": {
+      "title": "Венгрия",
+      "code": "HUN"
+    }
+  },
+  {
+    "model": "app.country",
+    "pk": 18,
+    "fields": {
+      "title": "Вьетнам",
+      "code": "VNM"
+    }
+  },
+  {
+    "model": "app.country",
+    "pk": 19,
+    "fields": {
+      "title": "Германия",
+      "code": "DEU"
+    }
+  },
+  {
+    "model": "app.country",
+    "pk": 20,
+    "fields": {
+      "title": "Гонконг",
+      "code": "HKG"
+    }
+  },
+  {
+    "model": "app.country",
+    "pk": 21,
+    "fields": {
+      "title": "Гренада",
+      "code": "GRD"
+    }
+  },
+  {
+    "model": "app.country",
+    "pk": 22,
+    "fields": {
+      "title": "Греция",
+      "code": "GRC"
+    }
+  },
+  {
+    "model": "app.country",
+    "pk": 23,
+    "fields": {
+      "title": "Грузия",
+      "code": "GEO"
+    }
+  },
+  {
+    "model": "app.country",
+    "pk": 24,
+    "fields": {
+      "title": "Дания",
+      "code": "DNK"
+    }
+  },
+  {
+    "model": "app.country",
+    "pk": 25,
+    "fields": {
+      "title": "Доминикана",
+      "code": "DOM"
+    }
+  },
+  {
+    "model": "app.country",
+    "pk": 26,
+    "fields": {
+      "title": "Египет",
+      "code": "EGY"
+    }
+  },
+  {
+    "model": "app.country",
+    "pk": 27,
+    "fields": {
+      "title": "Замбия",
+      "code": "ZMB"
+    }
+  },
+  {
+    "model": "app.country",
+    "pk": 28,
+    "fields": {
+      "title": "Зимбабве",
+      "code": "ZWE"
+    }
+  },
+  {
+    "model": "app.country",
+    "pk": 29,
+    "fields": {
+      "title": "Израиль",
+      "code": "ISR"
+    }
+  },
+  {
+    "model": "app.country",
+    "pk": 30,
+    "fields": {
+      "title": "Индия",
+      "code": "IND"
+    }
+  },
+  {
+    "model": "app.country",
+    "pk": 31,
+    "fields": {
+      "title": "Индонезия",
+      "code": "IDN"
+    }
+  },
+  {
+    "model": "app.country",
+    "pk": 32,
+    "fields": {
+      "title": "Иордания",
+      "code": "JOR"
+    }
+  },
+  {
+    "model": "app.country",
+    "pk": 33,
+    "fields": {
+      "title": "Ирак",
+      "code": "IRQ"
+    }
+  },
+  {
+    "model": "app.country",
+    "pk": 34,
+    "fields": {
+      "title": "Иран",
+      "code": "IRN"
+    }
+  },
+  {
+    "model": "app.country",
+    "pk": 35,
+    "fields": {
+      "title": "Ирландия",
+      "code": "IRL"
+    }
+  },
+  {
+    "model": "app.country",
+    "pk": 36,
+    "fields": {
+      "title": "Исландия",
+      "code": "ISL"
+    }
+  },
+  {
+    "model": "app.country",
+    "pk": 37,
+    "fields": {
+      "title": "Испания",
+      "code": "ESP"
+    }
+  },
+  {
+    "model": "app.country",
+    "pk": 38,
+    "fields": {
+      "title": "Италия",
+      "code": "ITA"
+    }
+  },
+  {
+    "model": "app.country",
+    "pk": 39,
+    "fields": {
+      "title": "Казахстан",
+      "code": "KAZ"
+    }
+  },
+  {
+    "model": "app.country",
+    "pk": 40,
+    "fields": {
+      "title": "Камбоджа",
+      "code": "KHM"
+    }
+  },
+  {
+    "model": "app.country",
+    "pk": 41,
+    "fields": {
+      "title": "Камерун",
+      "code": "CMR"
+    }
+  },
+  {
+    "model": "app.country",
+    "pk": 42,
+    "fields": {
+      "title": "Канада",
+      "code": "CAN"
+    }
+  },
+  {
+    "model": "app.country",
+    "pk": 43,
+    "fields": {
+      "title": "Кения",
+      "code": "KEN"
+    }
+  },
+  {
+    "model": "app.country",
+    "pk": 44,
+    "fields": {
+      "title": "Кипр",
+      "code": "CYP"
+    }
+  },
+  {
+    "model": "app.country",
+    "pk": 45,
+    "fields": {
+      "title": "Киргизия",
+      "code": "KGZ"
+    }
+  },
+  {
+    "model": "app.country",
+    "pk": 46,
+    "fields": {
+      "title": "Китай",
+      "code": "CHN"
+    }
+  },
+  {
+    "model": "app.country",
+    "pk": 47,
+    "fields": {
+      "title": "Колумбия",
+      "code": "COL"
+    }
+  },
+  {
+    "model": "app.country",
+    "pk": 48,
+    "fields": {
+      "title": "Конго",
+      "code": "CON"
+    }
+  },
+  {
+    "model": "app.country",
+    "pk": 49,
+    "fields": {
+      "title": "Куба",
+      "code": "CUB"
+    }
+  },
+  {
+    "model": "app.country",
+    "pk": 50,
+    "fields": {
+      "title": "Кувейт",
+      "code": "KWT"
+    }
+  },
+  {
+    "model": "app.country",
+    "pk": 51,
+    "fields": {
+      "title": "Лаос",
+      "code": "LAO"
+    }
+  },
+  {
+    "model": "app.country",
+    "pk": 52,
+    "fields": {
+      "title": "Латвия",
+      "code": "LVA"
+    }
+  },
+  {
+    "model": "app.country",
+    "pk": 53,
+    "fields": {
+      "title": "Ливан",
+      "code": "LBN"
+    }
+  },
+  {
+    "model": "app.country",
+    "pk": 54,
+    "fields": {
+      "title": "Ливия",
+      "code": "LBY"
+    }
+  },
+  {
+    "model": "app.country",
+    "pk": 55,
+    "fields": {
+      "title": "Литва",
+      "code": "LTU"
+    }
+  },
+  {
+    "model": "app.country",
+    "pk": 56,
+    "fields": {
+      "title": "Люксембург",
+      "code": "LUX"
+    }
+  },
+  {
+    "model": "app.country",
+    "pk": 57,
+    "fields": {
+      "title": "Македония",
+      "code": "MKD"
+    }
+  },
+  {
+    "model": "app.country",
+    "pk": 58,
+    "fields": {
+      "title": "Мальта",
+      "code": "MLT"
+    }
+  },
+  {
+    "model": "app.country",
+    "pk": 59,
+    "fields": {
+      "title": "Марокко",
+      "code": "MAR"
+    }
+  },
+  {
+    "model": "app.country",
+    "pk": 60,
+    "fields": {
+      "title": "Мексика",
+      "code": "MEX"
+    }
+  },
+  {
+    "model": "app.country",
+    "pk": 61,
+    "fields": {
+      "title": "Молдова",
+      "code": "MDA"
+    }
+  },
+  {
+    "model": "app.country",
+    "pk": 62,
+    "fields": {
+      "title": "Монголия",
+      "code": "MNG"
+    }
+  },
+  {
+    "model": "app.country",
+    "pk": 63,
+    "fields": {
+      "title": "Мьянма",
+      "code": "MMR"
+    }
+  },
+  {
+    "model": "app.country",
+    "pk": 64,
+    "fields": {
+      "title": "Намибия",
+      "code": "NAM"
+    }
+  },
+  {
+    "model": "app.country",
+    "pk": 65,
+    "fields": {
+      "title": "Непал",
+      "code": "NPL"
+    }
+  },
+  {
+    "model": "app.country",
+    "pk": 66,
+    "fields": {
+      "title": "Нигерия",
+      "code": "NGA"
+    }
+  },
+  {
+    "model": "app.country",
+    "pk": 67,
+    "fields": {
+      "title": "Нидерланды",
+      "code": "NLD"
+    }
+  },
+  {
+    "model": "app.country",
+    "pk": 68,
+    "fields": {
+      "title": "Новая Зеландия",
+      "code": "NZL"
+    }
+  },
+  {
+    "model": "app.country",
+    "pk": 69,
+    "fields": {
+      "title": "Норвегия",
+      "code": "NOR"
+    }
+  },
+  {
+    "model": "app.country",
+    "pk": 70,
+    "fields": {
+      "title": "ОАЭ",
+      "code": "ARE"
+    }
+  },
+  {
+    "model": "app.country",
+    "pk": 71,
+    "fields": {
+      "title": "Пакистан",
+      "code": "PAK"
+    }
+  },
+  {
+    "model": "app.country",
+    "pk": 72,
+    "fields": {
+      "title": "Парагвай",
+      "code": "PRY"
+    }
+  },
+  {
+    "model": "app.country",
+    "pk": 73,
+    "fields": {
+      "title": "Перу",
+      "code": "PER"
+    }
+  },
+  {
+    "model": "app.country",
+    "pk": 74,
+    "fields": {
+      "title": "Польша",
+      "code": "POL"
+    }
+  },
+  {
+    "model": "app.country",
+    "pk": 75,
+    "fields": {
+      "title": "Португалия",
+      "code": "PRT"
+    }
+  },
+  {
+    "model": "app.country",
+    "pk": 76,
+    "fields": {
+      "title": "Россия",
+      "code": "RUS"
+    }
+  },
+  {
+    "model": "app.country",
+    "pk": 77,
+    "fields": {
+      "title": "Румыния",
+      "code": "ROU"
+    }
+  },
+  {
+    "model": "app.country",
+    "pk": 78,
+    "fields": {
+      "title": "Саудовская Аравия",
+      "code": "SAU"
+    }
+  },
+  {
+    "model": "app.country",
+    "pk": 79,
+    "fields": {
+      "title": "Сенегал",
+      "code": "SEN"
+    }
+  },
+  {
+    "model": "app.country",
+    "pk": 80,
+    "fields": {
+      "title": "Сербия",
+      "code": "SRB"
+    }
+  },
+  {
+    "model": "app.country",
+    "pk": 81,
+    "fields": {
+      "title": "Сингапур",
+      "code": "SGP"
+    }
+  },
+  {
+    "model": "app.country",
+    "pk": 82,
+    "fields": {
+      "title": "Сирия",
+      "code": "SYR"
+    }
+  },
+  {
+    "model": "app.country",
+    "pk": 83,
+    "fields": {
+      "title": "Словакия",
+      "code": "SVK"
+    }
+  },
+  {
+    "model": "app.country",
+    "pk": 84,
+    "fields": {
+      "title": "Словения",
+      "code": "SVN"
+    }
+  },
+  {
+    "model": "app.country",
+    "pk": 85,
+    "fields": {
+      "title": "США",
+      "code": "USA"
+    }
+  },
+  {
+    "model": "app.country",
+    "pk": 86,
+    "fields": {
+      "title": "Таджикистан",
+      "code": "TJK"
+    }
+  },
+  {
+    "model": "app.country",
+    "pk": 87,
+    "fields": {
+      "title": "Тайвань",
+      "code": "TWN"
+    }
+  },
+  {
+    "model": "app.country",
+    "pk": 88,
+    "fields": {
+      "title": "Тайланд",
+      "code": "THA"
+    }
+  },
+  {
+    "model": "app.country",
+    "pk": 89,
+    "fields": {
+      "title": "Тунис",
+      "code": "TUN"
+    }
+  },
+  {
+    "model": "app.country",
+    "pk": 90,
+    "fields": {
+      "title": "Турция",
+      "code": "TUR"
+    }
+  },
+  {
+    "model": "app.country",
+    "pk": 91,
+    "fields": {
+      "title": "Уганда",
+      "code": "UGA"
+    }
+  },
+  {
+    "model": "app.country",
+    "pk": 92,
+    "fields": {
+      "title": "Узбекистан",
+      "code": "UZB"
+    }
+  },
+  {
+    "model": "app.country",
+    "pk": 93,
+    "fields": {
+      "title": "Украина",
+      "code": "UKR"
+    }
+  },
+  {
+    "model": "app.country",
+    "pk": 94,
+    "fields": {
+      "title": "Уругвай",
+      "code": "URY"
+    }
+  },
+  {
+    "model": "app.country",
+    "pk": 95,
+    "fields": {
+      "title": "Фиджи",
+      "code": "FJI"
+    }
+  },
+  {
+    "model": "app.country",
+    "pk": 96,
+    "fields": {
+      "title": "Филиппины",
+      "code": "PHL"
+    }
+  },
+  {
+    "model": "app.country",
+    "pk": 97,
+    "fields": {
+      "title": "Финляндия",
+      "code": "FIN"
+    }
+  },
+  {
+    "model": "app.country",
+    "pk": 98,
+    "fields": {
+      "title": "Франция",
+      "code": "FRA"
+    }
+  },
+
+  {
+    "model": "app.country",
+    "pk": 99,
+    "fields": {
+      "title": "Хорватия",
+      "code": "HRV"
+    }
+  },
+  {
+    "model": "app.country",
+    "pk": 100,
+    "fields": {
+      "title": "Центрально-африканская республика",
+      "code": "CAF"
+    }
+  },
+  {
+    "model": "app.country",
+    "pk": 101,
+    "fields": {
+      "title": "Черногория",
+      "code": "MNE"
+    }
+  },
+  {
+    "model": "app.country",
+    "pk": 102,
+    "fields": {
+      "title": "Чехия",
+      "code": "CZE"
+    }
+  },
+  {
+    "model": "app.country",
+    "pk": 103,
+    "fields": {
+      "title": "Чили",
+      "code": "CHL"
+    }
+  },
+  {
+    "model": "app.country",
+    "pk": 104,
+    "fields": {
+      "title": "Швейцария",
+      "code": "CHE"
+    }
+  },
+  {
+    "model": "app.country",
+    "pk": 105,
+    "fields": {
+      "title": "Швеция",
+      "code": "SWE"
     }
   }
 ]
