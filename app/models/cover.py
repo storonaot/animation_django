@@ -6,7 +6,7 @@ class Cover(models.Model):
     def get_file_path(self, filename):
         extension = filename.split('.')[-1]
         filename = "%s.%s" % (uuid4(), extension)
-        return os.path.join('uploads/covers/', filename)
+        return os.path.join('public/uploads/covers/', filename)
 
     upload_path = models.ImageField(
         verbose_name=u'Poster',

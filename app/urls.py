@@ -1,13 +1,13 @@
 from django.conf.urls import include, url
 from django.contrib import admin
 
-from .views import (
-        film_list,
-        film_create,
-        film_detail,
-        film_update,
-        film_delete,
-    )
+from app.views.film import (
+    film_list,
+    film_create,
+    film_detail,
+    film_update,
+    film_delete,
+)
 
 urlpatterns = [
     url(r'^$', film_list, name='list'),
