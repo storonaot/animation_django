@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Subtitles, Audiotrack, Director, Country, Studio, Film, Cover, Videoformat, Language, DVD, Serial, Season, Mediacontainer, Screenshot
+from .models import Audiotrack, Director, Country, Studio, Film, Cover, Videoformat, Language, DVD, Serial, Season, Mediacontainer, Screenshot
 
 admin.site.register(Cover)
 admin.site.register(Screenshot)
@@ -13,5 +13,4 @@ admin.site.register(Serial)
 admin.site.register(Season)
 admin.site.register(Mediacontainer)
 admin.site.register(Audiotrack)
-admin.site.register(Subtitles)
 admin.site.register(Film)

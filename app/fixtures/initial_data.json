@@ -189,6 +189,13 @@
     }
   },
   {
+    "model": "app.studio",
+    "pk": 28,
+    "fields": {
+      "title": "Studio Film Bilder"
+    }
+  },
+  {
     "model": "app.country",
     "pk": 1,
     "fields": {
@@ -1981,6 +1988,16 @@
       "original_name": "Devin Clark"
     }
   },
+
+  {
+    "model": "app.director",
+    "pk": 220,
+    "fields": {
+      "name": "Даниэль Ноке",
+      "original_name": "Daniel Nocke"
+    }
+  },
+
   {
     "model": "app.videoformat",
     "pk": 1,
@@ -2574,6 +2591,7 @@
       "title": ".mp4"
     }
   },
+
   {
     "model": "app.audiotrack",
     "pk": 1,
@@ -2622,6 +2640,348 @@
     "fields": {
       "title": "Кубик в Кубе"
     }
-  }
+  },
+  {
+    "model": "app.audiotrack",
+    "pk": 8,
+    "fields": {
+      "title": "Эгоист ТВ"
+    }
+  },
+  {
+    "model": "app.dvd",
+    "pk": 1,
+    "fields": {
+      "title": "Фимфарум Яна Вериха",
+      "original_title": "Fimfárum Jana Wericha",
+      "description": "Полнометражный фильм «Фимфарум Яна Вериха» возник в результате объединения пяти сказок из известной книги актера и писателя Яна Вериха, которую можно найти в библиотеке каждого чешского ребенка. Сказки для детей и взрослых являются забавной пародией на человеческие судьбы, изобличающей такие людские пороки как скупость, злорадство или чрезмерную страсть к алкоголю. Вполне в духе Яна Вериха, который был остроумным наблюдателем человеческих судеб, сказки всегда завершаются моралью и остроумным заключением о людях и жизни. Фильм продолжает богатую традицию чешского кукольного фильма. Художники Петр Пош и Мартин Велишек прекрасно передали в своей экранизации отдельные типы персонажей. Сценаристская и режиссерская работа Власты Поспишиловой и Аурела Климта придает оригинальному произведению Яна Вериха очарование визуального юмора. ",
+      "order_number": 1,
+      "cover": null
+    }
+  },
+  {
+    "model": "app.dvd",
+    "pk": 2,
+    "fields": {
+      "title": "Классика студии Aardman",
+      "original_title": "Aardman Classics",
+      "description": "Cобрание пластилиновых мультфильмов популярной анимационной английской студии Aardman. Превосходный юмор, оригинальные сюжеты и режиссерские находки, не говоря о первоклассном исполнении. Авторов некоторых работ представлять не надо, имена Ника Парка и Питера Лорда достаточно известны любителям анимации. Прекрасная возможность узнать и других режиссеров студии, познакомиться с новыми стилями. Кроме «пластилиновых» мультиков в сборнике есть и компьютерные работы, выполненные в той же манере.",
+      "order_number": 2,
+      "cover": null
+    }
+  },
 
+  {
+    "model": "app.serial",
+    "pk": 1,
+    "fields": {
+      "title": "Время приключений",
+      "original_title": "Adventure Time with Finn & Jake",
+      "start_date": "2010-01-01",
+      "end_date": null,
+      "description": "Сериал повествует о необыкновенных и весёлых приключениях двух лучших друзей: мальчика Финна и его собаки Джейка. Действие сериала происходит в волшебной стране Ууу. Финн — 13-летний мальчик, который обожает путешествовать и спасать принцесс из лап ужасных монстров и злодеев, населяющих Землю Ууу. Джейк — лучший друг Финна. Это волшебная собака со способностью растягивать своё тело до практически любых размеров и форм. Джейку 28 лет и он исполняет роль эдакого приятеля-наставника Финна, а его волшебные способности помогают мальчику в его борьбе со злом.",
+      "cover": null,
+      "studios": [1, 2, 3, 4],
+      "directors": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
+      "countries": [85]
+    }
+  },
+  {
+    "model": "app.serial",
+    "pk": 2,
+    "fields": {
+      "title": "Рик и Морти",
+      "original_title": "Rick and Morty",
+      "start_date": "2013-01-01",
+      "end_date": null,
+      "description": "В центре сюжета — школьник по имени Морти и его дедушка Рик. Морти — самый обычный мальчик, который ничем не отличается от своих сверстников. А вот его дедуля занимается необычными научными исследованиями и зачастую полностью неадекватен. Он может в любое время дня и ночи схватить внука и отправиться вместе с ним в межпространственные приключения с помощью построенной из разного хлама летающей тарелки, которая способна перемещаться сквозь временной тоннель. Каждый раз эта парочка оказывается в самых неожиданных местах и самых нелепых ситуациях.",
+      "cover": null,
+      "studios": [10, 11, 12, 13],
+      "directors": [91, 115, 114, 25, 113, 112, 111, 110, 109],
+      "countries": [85]
+    }
+  },
+  {
+    "model": "app.season",
+    "pk": 1,
+    "fields": {
+      "title": null,
+      "number": 1,
+      "start_date": "2010-01-01",
+      "cover": null,
+      "serial": 1
+    }
+  },
+  {
+    "model": "app.season",
+    "pk": 2,
+    "fields": {
+      "title": null,
+      "number": 2,
+      "start_date": "2010-01-01",
+      "cover": null,
+      "serial": 1
+    }
+  },
+  {
+    "model": "app.season",
+    "pk": 3,
+    "fields": {
+      "title": null,
+      "number": 3,
+      "start_date": "2011-01-01",
+      "cover": null,
+      "serial": 1
+    }
+  },
+  {
+    "model": "app.season",
+    "pk": 4,
+    "fields": {
+      "title": null,
+      "number": 4,
+      "start_date": "2012-01-01",
+      "cover": null,
+      "serial": 1
+    }
+  },
+  {
+    "model": "app.season",
+    "pk": 5,
+    "fields": {
+      "title": null,
+      "number": 5,
+      "start_date": "2012-01-01",
+      "cover": null,
+      "serial": 1
+    }
+  },
+  {
+    "model": "app.season",
+    "pk": 6,
+    "fields": {
+      "title": null,
+      "number": 6,
+      "start_date": "2014-01-01",
+      "cover": null,
+      "serial": 1
+    }
+  },
+  {
+    "model": "app.season",
+    "pk": 7,
+    "fields": {
+      "title": null,
+      "number": 7,
+      "start_date": "2015-01-01",
+      "cover": null,
+      "serial": 1
+    }
+  },
+  {
+    "model": "app.season",
+    "pk": 8,
+    "fields": {
+      "title": null,
+      "number": 8,
+      "start_date": "2017-01-01",
+      "cover": null,
+      "serial": 1
+    }
+  },
+  {
+    "model": "app.season",
+    "pk": 9,
+    "fields": {
+      "title": null,
+      "number": 1,
+      "start_date": "2013-01-01",
+      "cover": null,
+      "serial": 2
+    }
+  },
+  {
+    "model": "app.season",
+    "pk": 10,
+    "fields": {
+      "title": null,
+      "number": 2,
+      "start_date": "2015-01-01",
+      "cover": null,
+      "serial": 2
+    }
+  },
+  {
+    "model": "app.season",
+    "pk": 11,
+    "fields": {
+      "title": null,
+      "number": 3,
+      "start_date": "2017-01-01",
+      "cover": null,
+      "serial": 2
+    }
+  },
+  {
+    "model": "app.film",
+    "pk": 1,
+    "fields": {
+      "title": "Заварушка на Пирушке",
+      "original_title": "Slumber Party Panic",
+      "description": "Изобретенная Принцессой Бубльгум антитрупная сыворотка превратила умерших Сладких Людей в зомби. Теперь Финну предстоит охранять жителей Сладкого Королевства от зомби, пока Принцесса дорабатывает свою сыворотку. При этом он должен сдержать Королевское Обещание, запрещающее рассказывать кому-либо о причинах произошедшего.",
+      "time_ms": 659000,
+      "release_date": "2010-04-05",
+      "cover": null,
+      "videoformat": 1,
+      "original_language": 3,
+      "dvd": null,
+      "serial": 1,
+      "season": 1,
+      "mediacontainer": 2,
+      "countries": [],
+      "directors": [],
+      "studios": [],
+      "subtitles": [],
+      "audiotracks": [1]
+    }
+  },
+
+  {
+    "model": "app.film",
+    "pk": 2,
+    "fields": {
+      "title": "Неладно что-то в пупырчатом королевстве",
+      "original_title": "Trouble in Lumpy Space",
+      "description": "Финн отправляется в Пупырчатое Королевство, чтобы спасти Джейка, заразившегося пупырчатостью. Если он не найдет противоядие, его лучший друг навсегда останется пупырчатым.",
+      "time_ms": 659000,
+      "release_date": "2010-04-05",
+      "cover": null,
+      "videoformat": 1,
+      "original_language": 3,
+      "dvd": null,
+      "serial": 1,
+      "season": 1,
+      "mediacontainer": 2,
+      "countries": [],
+      "directors": [],
+      "studios": [],
+      "subtitles": [],
+      "audiotracks": [1]
+    }
+  },
+  {
+    "model": "app.film",
+    "pk": 3,
+    "fields": {
+      "title": "Заложники любви",
+      "original_title": "Prisoners of Love",
+      "description": "Финн и Джейк попадают в плен к Снежному Королю и обнаруживают, что он держит за решеткой целую коллекцию принцесс Земли Ву.",
+      "time_ms": 1,
+      "release_date": "2010-04-12",
+      "cover": null,
+      "videoformat": 1,
+      "original_language": 3,
+      "dvd": null,
+      "serial": 1,
+      "season": 1,
+      "mediacontainer": 2,
+      "countries": [],
+      "directors": [],
+      "studios": [],
+      "subtitles": [],
+      "audiotracks": [1]
+    }
+  },
+  {
+    "model": "app.film",
+    "pk": 4,
+    "fields": {
+      "title": "Деревяшка",
+      "original_title": "Tree Trunks",
+      "description": "Финн, Джейк и Деревяшка отправляются в Злой Темный Лес, чтобы исполнить заветную мечту Деревяшки – сорвать Кристальное Яблоко.",
+      "time_ms": 1,
+      "release_date": "2010-04-12",
+      "cover": null,
+      "videoformat": 1,
+      "original_language": 3,
+      "dvd": null,
+      "serial": 1,
+      "season": 1,
+      "mediacontainer": 2,
+      "countries": [],
+      "directors": [],
+      "studios": [],
+      "subtitles": [],
+      "audiotracks": [1]
+    }
+  },
+  {
+    "model": "app.film",
+    "pk": 5,
+    "fields": {
+      "title": "Пилотный выпуск",
+      "original_title": "Pilot",
+      "description": "Морти помогает Рику нелегально перевезти из параллельного измерения мегасемена в себе.",
+      "time_ms": 1,
+      "release_date": "2013-12-02",
+      "cover": null,
+      "videoformat": 1,
+      "original_language": 3,
+      "dvd": null,
+      "serial": 2,
+      "season": 1,
+      "mediacontainer": 3,
+      "countries": [],
+      "directors": [],
+      "studios": [],
+      "subtitles": [],
+      "audiotracks": [4]
+    }
+  },
+  {
+    "model": "app.film",
+    "pk": 6,
+    "fields": {
+      "title": "Пёс-газонокосильщик",
+      "original_title": "Lawnmower Dog",
+      "description": "Рик изобретает для маленького пса Морти шлем для улучшения мыслительного процесса и тем самым ставит мир на грани захвата человечества собаками, пока в это время Рик и Морти путешествуют по снам учителя математики, пытаясь подсознательно заставить того ставить Морти хорошие оценки.",
+      "time_ms": 1,
+      "release_date": "2013-12-09",
+      "cover": null,
+      "videoformat": 1,
+      "original_language": 3,
+      "dvd": null,
+      "serial": 2,
+      "season": 1,
+      "mediacontainer": 3,
+      "countries": [],
+      "directors": [],
+      "studios": [],
+      "subtitles": [],
+      "audiotracks": [4]
+    }
+  },
+  {
+    "model": "app.film",
+    "pk": 7,
+    "fields": {
+      "title": "12 лет",
+      "original_title": "12 Jahre",
+      "description": "Саркастичный взгляд на возможный исход расставания после 12 лет брака.",
+      "time_ms": 179000,
+      "release_date": "2010-01-01",
+      "cover": null,
+      "videoformat": 1,
+      "original_language": 3,
+      "dvd": null,
+      "serial": null,
+      "season": null,
+      "mediacontainer": 1,
+      "countries": [19],
+      "directors": [220],
+      "studios": [28],
+      "subtitles": [],
+      "audiotracks": [8]
+    }
+  }
 ]

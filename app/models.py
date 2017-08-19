@@ -19,21 +19,6 @@ class Cover(models.Model):
         null=True
     )
 
-# Повторяющийся код, переписать
-class Screenshot(models.Model):
-    def get_file_path(self, filename):
-        extension = filename.split('.')[-1]
-        filename = "%s.%s" % (uuid4(), extension)
-        return os.path.join('uploads/screenshots/', filename)
-
-    upload_path = models.ImageField(
-        verbose_name=u'Poster',
-        upload_to=get_file_path,
-        max_length=256,
-        blank=True,
-        null=True
-    )
-
 class Studio(models.Model):
     title = models.CharField(max_length=200, unique=True)
 
@@ -82,54 +67,80 @@ class Audiotrack(models.Model):
     def __str__(self):
         return self.title
 
-class Subtitles(models.Model):
-    language = models.ForeignKey(Language, default=1)
-
 class DVD(models.Model):
     title = models.CharField(max_length=200)
     original_title = models.CharField(max_length=200)
     description = models.TextField(blank=True, null=True)
+    order_number = models.PositiveIntegerField(default=0)
     cover = models.ForeignKey(Cover, blank=True, null=True)
+
+    def __str__(self):
+        return self.title
 
 class Serial(models.Model):
     title = models.CharField(max_length=200)
     original_title = models.CharField(max_length=200)
     start_date = models.DateField(default=date.today)
-    end_date = models.DateField(default=date.today)
+    end_date = models.DateField(default=date.today, blank=True, null=True)
+    description = models.TextField(blank=True, null=True)
     cover = models.ForeignKey(Cover, blank=True, null=True)
-    studios = models.ManyToManyField(Studio)
+    studios = models.ManyToManyField(Studio, blank=True)
     directors = models.ManyToManyField(Director)
     countries = models.ManyToManyField(Country)
-
-class Season(models.Model):
-    title = models.CharField(max_length=200)
-    number = models.PositiveIntegerField(default=1)
-    start_date = models.DateField(default=date.today)
-    cover = models.ForeignKey(Cover, blank=True)
-    serial = models.ForeignKey(Serial, default=1)
-
-class Film(models.Model):
-    title = models.CharField(max_length=200)
-    original_title = models.CharField(max_length=200)
-    description = models.TextField()
-    time_ms = models.PositiveIntegerField(default=2)
-    release_date = models.DateField(default=date.today)
-    cover = models.ForeignKey(Cover, blank=True)
-    videoformat = models.ForeignKey(Videoformat, default=1)
-    original_language = models.ForeignKey(Language, default=1)
-    dvd = models.ForeignKey(DVD, null=True, blank=True)
-    serial = models.ForeignKey(Serial, null=True, blank=True)
-    season = models.ForeignKey(Season, null=True, blank=True)
-    mediacontainer = models.ForeignKey(Mediacontainer, blank=True)
-    countries = models.ManyToManyField(Country, blank=True)
-    directors = models.ManyToManyField(Director, blank=True)
-    studios = models.ManyToManyField(Studio, blank=True)
-    screenshots = models.ManyToManyField(Screenshot, blank=True)
-    subtitles = models.ManyToManyField(Subtitles, blank=True)
-    audiotracks = models.ManyToManyField(Audiotrack, blank=True)
 
     def __str__(self):
         return self.title
 
-    def get_absolute_url(self):
-        return reverse('films:detail', kwargs={ "id": self.id })
+class Season(models.Model):
+    title = models.CharField(max_length=200, blank=True, null=True)
+    number = models.PositiveIntegerField(default=1)
+    start_date = models.DateField(default=date.today)
+    cover = models.ForeignKey(Cover, blank=True, null=True)
+    serial = models.ForeignKey(Serial)
+
+    def __str__(self):
+        return "%s %s" % (self.serial.title, self.number)
+
+class Film(models.Model):
+    title = models.CharField(max_length=200)
+    original_title = models.CharField(max_length=200)
+    description = models.TextField(blank=True, null=True)
+    time_ms = models.PositiveIntegerField(blank=True, null=True)
+    # 10m -> 600 000 ms
+    # 1m  -> 60 000 ms
+    # 10s -> 10 000ms
+    # 1s  -> 1 000ms
+    release_date = models.DateField(default=date.today)
+    cover = models.ForeignKey(Cover, blank=True, null=True)
+    videoformat = models.ForeignKey(Videoformat, default=1)
+    original_language = models.ForeignKey(Language, default=1, related_name='language')
+    dvd = models.ForeignKey(DVD, null=True, blank=True)
+    serial = models.ForeignKey(Serial, null=True, blank=True)
+    season = models.ForeignKey(Season, null=True, blank=True)
+    mediacontainer = models.ForeignKey(Mediacontainer, default=1)
+    countries = models.ManyToManyField(Country, blank=True)
+    directors = models.ManyToManyField(Director, blank=True)
+    studios = models.ManyToManyField(Studio, blank=True)
+    subtitles = models.ManyToManyField(Language, blank=True, related_name='subtitles')
+    audiotracks = models.ManyToManyField(Audiotrack, blank=True)
+
+    def __str__(self):
+        if self.serial:
+            return "%s (%s)" % (self.title, self.serial.title)
+        return self.title
+
+# Повторяющийся код, переписать
+class Screenshot(models.Model):
+    def get_file_path(self, filename):
+        extension = filename.split('.')[-1]
+        filename = "%s.%s" % (uuid4(), extension)
+        return os.path.join('uploads/screenshots/', filename)
+
+    upload_path = models.ImageField(
+        verbose_name=u'Poster',
+        upload_to=get_file_path,
+        max_length=256,
+        blank=True,
+        null=True
+    )
+    film = models.ForeignKey(Film, on_delete=models.CASCADE, default=1)
