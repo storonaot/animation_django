@@ -14,7 +14,7 @@ import reducer from 'store/reducers'
 const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk)))
 const history = syncHistoryWithStore(hashHistory, store)
 
-axios.get('/films').then((response) => {
+axios.get('/api/films').then((response) => {
   console.log('response', response.data)
 })
 

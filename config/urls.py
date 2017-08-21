@@ -4,12 +4,15 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from rest_framework.urlpatterns import format_suffix_patterns
 
-from app.views.index import IndexTemplate
+from app.views import IndexTemplate
 
 urlpatterns = [
     url(r'^$', IndexTemplate),
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^films/', include("app.urls.films", namespace='films')),
+    # url(r'^films/', include("app.urls.films", namespace='films')),
+    url(r'^api/films/', include('app.api.urls.films', namespace='films-api')),
+    url(r'^api/shorts/', include('app.api.urls.shorts', namespace='films-api')),
+    url(r'^api/serials/', include('app.api.urls.serials', namespace='serials-api')),
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)
