@@ -5,18 +5,23 @@ const StyleLintPlugin = require('stylelint-webpack-plugin')
 
 module.exports = {
   context: path.join(__dirname, 'app/frontend'),
-  entry: [
-    'react-hot-loader/patch',
-    'webpack-dev-server/client?http://localhost:8080',
-    'webpack/hot/only-dev-server',
-    './javascripts/index.js'
-  ],
+  // entry: [
+  //   'react-hot-loader/patch',
+  //   'webpack-dev-server/client?http://localhost:8080',
+  //   'webpack/hot/only-dev-server',
+  //   './javascripts/index.js',
+  //   './stylesheets/index.js'
+  // ],
+  entry: {
+    javascripts: './javascripts/index.js',
+    styles: './stylesheets/index.js'
+  },
   // entry: './javascripts/index.js',
   output: {
     path: path.resolve(__dirname, 'public/javascripts/'),
     publicPath: '/',
     // filename: "[name]-[hash].js"
-    filename: '[name].js'
+    filename: '[name].bundle.js'
     // filename: 'javascripts/[name].bundle.js',
     // chunkFilename: 'javascripts/[id].bundle.js',
   },
@@ -42,7 +47,21 @@ module.exports = {
         test: /\.css$/,
         use: ['style-loader', 'css-loader']
       },
-
+      {
+        test: /\.pcss$/,
+        use: [
+          'style-loader',
+          'css-loader',
+          {
+            loader: 'postcss-loader',
+            options: {
+              config: {
+                path: './postcss.config.js'
+              }
+            }
+          }
+        ]
+      },
       {
         test: /\.sss$/,
         use: [
@@ -85,12 +104,13 @@ module.exports = {
       path.resolve(__dirname, 'node_modules'),
       path.resolve(__dirname, './app/frontend/components')
     ],
-    extensions: ['.js', '.css', '.jsx', '.sss']
+    extensions: ['.js', '.css', '.jsx', '.sss', 'pcss']
   },
   plugins: [
     new webpack.ProvidePlugin({
       React: 'react',
-      _: 'lodash'
+      _: 'lodash',
+      axios: 'axios'
     }),
     new webpack.NoEmitOnErrorsPlugin(),
     new BundleTracker({

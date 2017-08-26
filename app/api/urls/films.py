@@ -15,5 +15,4 @@ urlpatterns = [
     url(r'^(?P<pk>\d+)/$', FilmDetailAPIView.as_view(), name='detail'),
     url(r'^(?P<pk>\d+)/edit/$', FilmUpdateAPIView.as_view(), name='update'),
     url(r'^(?P<pk>\d+)/delete/$', FilmDeleteAPIView.as_view(), name='delete'),
-
 ]

@@ -2,9 +2,18 @@ from django.conf.urls import url
 from django.contrib import admin
 
 from app.api.views.short import (
-        ShortListAPIView,
+    ShortListAPIView,
+    ShortCreateAPIView,
+    ShortDetailAPIView,
+    ShortUpdateAPIView,
+    ShortDeleteAPIView,
     )
 
 urlpatterns = [
     url(r'^$', ShortListAPIView.as_view(), name='list'),
+    url(r'^create/$', ShortCreateAPIView.as_view(), name='create'),
+    url(r'^(?P<pk>\d+)/$', ShortDetailAPIView.as_view(), name='detail'),
+    url(r'^(?P<pk>\d+)/edit/$', ShortUpdateAPIView.as_view(), name='update'),
+    url(r'^(?P<pk>\d+)/delete/$', ShortDeleteAPIView.as_view(), name='delete')
+
 ]

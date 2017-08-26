@@ -71,9 +71,6 @@
     "media-feature-range-operator-space-after": "always",
     "media-feature-range-operator-space-before": "always",
     "at-rule-name-case": "lower",
-    "at-rule-name-space-after": "always",
-    "comment-empty-line-before": "never",
-    "comment-whitespace-inside": "always",
     "indentation": 2
   }
 }

@@ -21,7 +21,9 @@
     "browser": true
   },
   "globals": {
-    "React": true
+    "React": true,
+    "axios": true,
+    "_": true
   },
   "plugins": [
     "react"

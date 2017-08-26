@@ -1,7 +1,7 @@
 module.exports = {
   parser: 'sugarss',
   plugins: {
-    'precss': {},
+    precss: {},
     'postcss-svg': {
       paths: ['./app/frontend/images/icons']
     }
