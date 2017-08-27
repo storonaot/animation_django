@@ -1,3 +1,9 @@
-const DVD = () => <div>Hello DVD</div>
+import PropTypes from 'prop-types'
 
-export default DVD
+const DVDLayout = ({ children }) => <div>{children}</div>
+
+DVDLayout.propTypes = {
+  children: PropTypes.shape({}).isRequired
+}
+
+export default DVDLayout

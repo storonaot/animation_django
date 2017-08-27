@@ -1,3 +1,9 @@
-const Serials = () => <div>Hello Serials</div>
+import PropTypes from 'prop-types'
 
-export default Serials
+const SerialsLayout = ({ children }) => <div>{children}</div>
+
+SerialsLayout.propTypes = {
+  children: PropTypes.shape({}).isRequired
+}
+
+export default SerialsLayout

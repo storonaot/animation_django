@@ -1,3 +1,9 @@
-const FullLength = () => <div>Hello FullLength</div>
+import PropTypes from 'prop-types'
 
-export default FullLength
+const FullLengthLayout = ({ children }) => <div>{children}</div>
+
+FullLengthLayout.propTypes = {
+  children: PropTypes.shape({}).isRequired
+}
+
+export default FullLengthLayout
