@@ -14,7 +14,7 @@ const iconStyles = {
   cursor: 'pointer'
 }
 
-const LastAdded = ({ title, content, goToCreatePage, name }) => {
+const LastAdded = ({ title, content, goToCreatePage, name, showMoreDetails }) => {
   console.log('hhh')
   return (
     <div>
@@ -33,7 +33,11 @@ const LastAdded = ({ title, content, goToCreatePage, name }) => {
         </Col>
       </Row>
       <Row>
-        {content.map(item => <Item key={item.id} content={item} />)}
+        {content.map(item => (<Item
+          key={item.id}
+          content={item}
+          showMoreDetails={showMoreDetails}
+        />))}
       </Row>
     </div>
   )
@@ -51,5 +55,6 @@ LastAdded.propTypes = {
     PropTypes.shape({})
   ),
   goToCreatePage: PropTypes.func.isRequired,
-  name: PropTypes.string.isRequired
+  name: PropTypes.string.isRequired,
+  showMoreDetails: PropTypes.func.isRequired
 }

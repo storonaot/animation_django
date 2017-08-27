@@ -45,5 +45,8 @@ class FilmListSerializer(ModelSerializer):
             'time_ms',
             'directors',
             'release_date',
-            'cover'
+            'cover',
+            'liked',
+            'watched',
+            'selected'
         ]

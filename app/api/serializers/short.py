@@ -23,7 +23,10 @@ class ShortListSerializer(ModelSerializer):
             'time_ms',
             'directors',
             'release_date',
-            'cover'
+            'cover',
+            'liked',
+            'watched',
+            'selected'
         ]
 
 class ShortDetailSerialiser(ModelSerializer):

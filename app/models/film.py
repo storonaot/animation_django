@@ -1,5 +1,5 @@
 from django.db import models
-from datetime import date
+from datetime import date, datetime
 
 from app.models.cover import Cover
 from app.models.videoformat import Videoformat
@@ -35,6 +35,10 @@ class Film(models.Model):
     studios = models.ManyToManyField(Studio, blank=True)
     subtitles = models.ManyToManyField(Language, blank=True, related_name='subtitles')
     audiotracks = models.ManyToManyField(Audiotrack, blank=True)
+    timestamp = models.DateTimeField(default=datetime.now, blank=True)
+    liked = models.BooleanField(default=False)
+    watched = models.BooleanField(default=False)
+    selected = models.BooleanField(default=False)
 
     def __str__(self):
         if self.serial:

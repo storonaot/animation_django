@@ -49,21 +49,6 @@ module.exports = {
         use: ['style-loader', 'css-loader']
       },
       {
-        test: /\.pcss$/,
-        use: [
-          'style-loader',
-          'css-loader',
-          {
-            loader: 'postcss-loader',
-            options: {
-              config: {
-                path: './postcss.config.js'
-              }
-            }
-          }
-        ]
-      },
-      {
         test: /\.sss$/,
         use: [
           'style-loader',
@@ -105,7 +90,7 @@ module.exports = {
       path.resolve(__dirname, 'node_modules'),
       path.resolve(__dirname, './app/frontend/components')
     ],
-    extensions: ['.js', '.css', '.jsx', '.sss', 'pcss']
+    extensions: ['.js', '.css', '.jsx', '.sss']
   },
   plugins: [
     new webpack.ProvidePlugin({

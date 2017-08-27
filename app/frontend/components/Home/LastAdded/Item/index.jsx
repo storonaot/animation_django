@@ -1,11 +1,12 @@
 import PropTypes from 'prop-types'
 import { Col } from 'react-flexbox-grid'
 import Paper from 'material-ui/Paper'
-import { Card, CardMedia, CardTitle } from 'material-ui/Card'
+import CheckCircle from 'material-ui/svg-icons/action/check-circle'
+import Visibility from 'material-ui/svg-icons/action/visibility'
+import Favorite from 'material-ui/svg-icons/action/favorite'
+import { Card, CardMedia, CardTitle, CardHeader } from 'material-ui/Card'
 import moment from 'helpers/moment'
 import styles from './styles'
-
-console.log(moment(123456, 'LL'))
 
 const paperStyles = {
   width: '100%',
@@ -17,10 +18,15 @@ const backgroundImage = cover => ({
     : 'url(http://gamelayer.ru/gameimg/igry-vremja-prikljuchenij-1.jpg)'
 })
 
-const Item = ({ content }) => (
+const Item = ({ content, showMoreDetails }) => (
   <Col md={2}>
     <Paper style={paperStyles} zDepth={2}>
-      <Card>
+      <Card onClick={() => { showMoreDetails(content.id) }}>
+        <CardHeader style={{ textAlign: 'right' }}>
+          <CheckCircle />
+          <Visibility />
+          <Favorite />
+        </CardHeader>
         <CardMedia
           overlay={
             <CardTitle
@@ -42,5 +48,6 @@ const Item = ({ content }) => (
 export default Item
 
 Item.propTypes = {
-  content: PropTypes.shape({}).isRequired
+  content: PropTypes.shape({}).isRequired,
+  showMoreDetails: PropTypes.func.isRequired
 }
