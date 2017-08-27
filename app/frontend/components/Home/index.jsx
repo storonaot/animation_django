@@ -5,14 +5,46 @@ import { getLastShorts } from 'store/actions/shorts'
 import LastAdded from './LastAdded'
 
 class Index extends React.Component {
+  constructor(props) {
+    super(props)
+    this.goToCreatePage = this.goToCreatePage.bind(this)
+  }
+
   componentDidMount() {
     this.props.onGetLastShorts()
+  }
+
+  goToCreatePage(name) {
+    this.props.router.push(`${name}/create`)
   }
 
   render() {
     return (
       <div>
-        <LastAdded title="Короткометражки" content={this.props.lastShorts.data} />
+        <LastAdded
+          title="Короткометражки"
+          name="shorts"
+          content={this.props.lastShorts.data}
+          goToCreatePage={this.goToCreatePage}
+        />
+        <LastAdded
+          title="Полнометражки"
+          name="full-length"
+          content={this.props.lastShorts.data}
+          goToCreatePage={this.goToCreatePage}
+        />
+        <LastAdded
+          title="Серии"
+          name="serials"
+          content={this.props.lastShorts.data}
+          goToCreatePage={this.goToCreatePage}
+        />
+        <LastAdded
+          title="DVD"
+          name="dvd"
+          content={this.props.lastShorts.data}
+          goToCreatePage={this.goToCreatePage}
+        />
       </div>
     )
   }
@@ -34,5 +66,8 @@ Index.propTypes = {
   onGetLastShorts: PropTypes.func.isRequired,
   lastShorts: PropTypes.shape({
     data: PropTypes.array
+  }).isRequired,
+  router: PropTypes.shape({
+    push: PropTypes.func
   }).isRequired
 }

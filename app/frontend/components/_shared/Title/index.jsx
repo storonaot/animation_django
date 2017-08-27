@@ -1,25 +1,29 @@
 import PropTypes from 'prop-types'
+import classNames from 'classnames'
 import styles from './styles'
 
-const Title = ({ title, type }) => {
-  const getTitle = () => {
-    if (type === 'h1') return <h1 className={styles.h1}>{title}</h1>
-    else if (type === 'h2') return <h2 className={styles.h2}>{title}</h2>
-    else if (type === 'h3') return <h3 className={styles.h3}>{title}</h3>
-    else if (type === 'h4') return <h4 className={styles.h4}>{title}</h4>
-    else if (type === 'h5') return <h5 className={styles.h5}>{title}</h5>
-    return <h6>{title}</h6>
-  }
-  return getTitle()
+const Title = ({ title, type, marginBottom }) => {
+  const classList = classNames({
+    [styles.h1]: type === 'h1',
+    [styles.h2]: type === 'h2',
+    [styles.h3]: type === 'h3',
+    [styles.h4]: type === 'h4',
+    [styles.h5]: type === 'h5',
+    [styles.h6]: type === 'h6',
+    [styles.shiftedBottom]: marginBottom
+  })
+  return <h2 className={classList}>{title}</h2>
 }
 
 Title.defaultProps = {
-  type: 'h3'
+  type: 'h3',
+  marginBottom: true
 }
 
 Title.propTypes = {
   title: PropTypes.string.isRequired,
-  type: PropTypes.string
+  type: PropTypes.string,
+  marginBottom: PropTypes.bool
 }
 
 export default Title

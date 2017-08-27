@@ -1,36 +1,34 @@
 import PropTypes from 'prop-types'
 import { Row, Col } from 'react-flexbox-grid'
-import Divider from 'material-ui/Divider'
+import { Divider } from 'material-ui'
 import Title from '_shared/Title'
+import ContentAddCircle from 'material-ui/svg-icons/content/add-circle'
+import { lime600, lime800 } from 'material-ui/styles/colors'
+
 import Item from './Item'
+import styles from './styles'
 
-// const testContent = {
-//   title: 'Лида ЖОПКА',
-//   subTitle: 'Писька',
-//   imageUrl: 'http://www.sobaka.ru/images/image/00/37/94/46/normal_Adventure_Time_WHAT_TIME_IS_IT.jpgs'
-// }
+const iconStyles = {
+  width: 40,
+  height: 40,
+  cursor: 'pointer'
+}
 
-// const LastAdded = ({ title, content }) => (
-//   <div>
-//     <Row>
-//       <Col md={12}>
-//         <Title title={title} type="h2" />
-//         <Divider />
-//       </Col>
-//     </Row>
-//     <Row>
-//       {content.map(item => <Item content={item} />)}
-//     </Row>
-//   </div>
-// )
-
-const LastAdded = ({ title, content }) => {
-  console.log('content', content)
+const LastAdded = ({ title, content, goToCreatePage, name }) => {
+  console.log('hhh')
   return (
     <div>
       <Row>
         <Col md={12}>
-          <Title title={title} type="h2" />
+          <div className={styles.titleBlock}>
+            <Title title={title} type="h2" marginBottom={false} />
+            <ContentAddCircle
+              style={iconStyles}
+              color={lime600}
+              hoverColor={lime800}
+              onClick={() => goToCreatePage(name)}
+            />
+          </div>
           <Divider />
         </Col>
       </Row>
@@ -43,13 +41,6 @@ const LastAdded = ({ title, content }) => {
 
 export default LastAdded
 
-// {this.props.serials.data.map(serial => {
-//              return <li key={serial._id}>
-//                      <Link to={`serials/${serial._id}`}>{serial.title}</Link>
-//                      <span onClick={this.deleteSerial.bind(this, serial._id)}>Удалить</span>
-//                     </li>
-//            })}
-
 LastAdded.defaultProps = {
   content: []
 }
@@ -58,5 +49,7 @@ LastAdded.propTypes = {
   title: PropTypes.string.isRequired,
   content: PropTypes.arrayOf(
     PropTypes.shape({})
-  )
+  ),
+  goToCreatePage: PropTypes.func.isRequired,
+  name: PropTypes.string.isRequired
 }
