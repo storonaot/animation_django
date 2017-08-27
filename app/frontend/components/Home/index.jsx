@@ -10,7 +10,6 @@ class Index extends React.Component {
   }
 
   render() {
-    console.log('this.props.lastShorts', this.props)
     return (
       <div>
         <LastAdded title="Короткометражки" content={this.props.lastShorts.data} />

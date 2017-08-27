@@ -9,6 +9,10 @@ const paperStyles = {
   cursor: 'pointer'
 }
 
+// cover.upload_path
+
+const backgroundImage = cover => ({ backgroundImage: cover ? `url(${cover.upload_path})` : 'url(http://gamelayer.ru/gameimg/igry-vremja-prikljuchenij-1.jpg)' })
+
 const Item = ({ content }) => (
   <Col md={2}>
     <Paper style={paperStyles} zDepth={2}>
@@ -16,7 +20,7 @@ const Item = ({ content }) => (
         <CardMedia overlay={<CardTitle title={content.title} subtitle={`${content.original_title} (${content.release_date})`} />}>
           <div
             className={styles.image}
-            style={{ backgroundImage: 'url(http://www.sobaka.ru/images/image/00/37/94/46/normal_Adventure_Time_WHAT_TIME_IS_IT.jpg)' }}
+            style={backgroundImage(content.cover)}
           />
         </CardMedia>
       </Card>

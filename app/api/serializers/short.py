@@ -8,9 +8,11 @@ from .mediacontainer import MediacontainerSerializer
 from .country import CountrySerializer
 from .director import DirectorSerializer
 from .studio import StudioSerializer
+from .cover import CoverSerializer
 
 class ShortListSerializer(ModelSerializer):
     directors = DirectorSerializer(many=True, read_only=True)
+    cover = CoverSerializer(read_only=True)
     class Meta:
         model = Film
         fields = [

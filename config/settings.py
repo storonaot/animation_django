@@ -29,6 +29,9 @@ ALLOWED_HOSTS = []
 
 WEBPACK_DEV_SERVER = True
 
+MEDIA_URL = '/'
+MEDIA_ROOT = os.path.join(BASE_DIR, '')
+
 # Application definition
 
 INSTALLED_APPS = [
