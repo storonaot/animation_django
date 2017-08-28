@@ -22,6 +22,7 @@ module.exports = {
     publicPath: '/',
     filename: '[name].bundle.js',
     chunkFilename: '[id].bundle.js'
+    // chunkFilename: 'chunk.[id].[chunkhash:8].js'
   },
   module: {
     rules: [
@@ -128,11 +129,16 @@ module.exports = {
       configFile: './.stylelintrc',
       syntax: 'sugarss'
     }),
-    // new ExtractTextPlugin('stylesheets/[name].bundle.[chunkhash].css')
     new ExtractTextPlugin({
       filename: 'stylesheets/[name].bundle.[chunkhash].css',
       allChunks: true
     })
+    // new webpack.optimize.CommonsChunkPlugin({
+    //   // filename: 'commons.[chunkhash:8].js',
+    //   children: true,
+    //   async: true,
+    //   minChunks: 2
+    // })
   ],
   devServer: {
     host: 'localhost',
