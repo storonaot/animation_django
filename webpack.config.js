@@ -2,6 +2,7 @@ const path = require('path')
 const webpack = require('webpack')
 const BundleTracker = require('webpack-bundle-tracker')
 const StyleLintPlugin = require('stylelint-webpack-plugin')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 module.exports = {
   context: path.join(__dirname, 'app/frontend'),
@@ -16,15 +17,11 @@ module.exports = {
     javascripts: './javascripts/index.js',
     styles: './stylesheets/index.js'
   },
-  // entry: './javascripts/index.js',
   output: {
     path: path.resolve(__dirname, 'public/javascripts/'),
     publicPath: '/',
-    // filename: "[name]-[hash].js"
     filename: '[name].bundle.js',
     chunkFilename: '[id].bundle.js'
-    // filename: 'javascripts/[name].bundle.js',
-    // chunkFilename: 'javascripts/[id].bundle.js',
   },
   module: {
     rules: [
@@ -44,32 +41,56 @@ module.exports = {
         ],
         loader: 'babel-loader'
       },
+      // {
+      //   test: /\.css$/,
+      //   use: ['style-loader', 'css-loader']
+      // },
       {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader']
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: 'css-loader'
+        })
       },
       {
         test: /\.sss$/,
-        use: [
-          'style-loader',
-          {
-            loader: 'css-loader',
-            options: {
-              importLoaders: 1,
-              modules: true,
-              localIndentName: '[name]__[local]___[hash:base64:5]'
-            }
-          },
-          {
-            loader: 'postcss-loader',
-            options: {
-              config: {
-                path: './postcss.config.js'
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: [
+            { loader: 'css-loader', options: { importLoaders: 1, modules: true, localIndentName: '[name]__[local]___[hash:base64:5]' } },
+            {
+              loader: 'postcss-loader',
+              options: {
+                config: {
+                  path: './postcss.config.js'
+                }
               }
             }
-          }
-        ]
+          ]
+        })
       },
+      // {
+      //   test: /\.sss$/,
+      //   use: [
+      //     'style-loader',
+      //     {
+      //       loader: 'css-loader',
+      //       options: {
+      //         importLoaders: 1,
+      //         modules: true,
+      //         localIndentName: '[name]__[local]___[hash:base64:5]'
+      //       }
+      //     },
+      //     {
+      //       loader: 'postcss-loader',
+      //       options: {
+      //         config: {
+      //           path: './postcss.config.js'
+      //         }
+      //       }
+      //     }
+      //   ]
+      // },
       {
         test: /\.jpe?g$|\.gif$|\.png$|\.svg$|\.woff$|\.ttf$|\.wav$|\.mp3$/,
         use: [
@@ -106,6 +127,11 @@ module.exports = {
     new StyleLintPlugin({
       configFile: './.stylelintrc',
       syntax: 'sugarss'
+    }),
+    // new ExtractTextPlugin('stylesheets/[name].bundle.[chunkhash].css')
+    new ExtractTextPlugin({
+      filename: 'stylesheets/[name].bundle.[chunkhash].css',
+      allChunks: true
     })
   ],
   devServer: {
@@ -115,7 +141,6 @@ module.exports = {
     },
     port: 8080,
     contentBase: path.join(__dirname, 'public'),
-    // contentBase: 'http://127.0.0.1:8080/public/',
     historyApiFallback: true,
     hot: true
   }
