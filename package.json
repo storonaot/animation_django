@@ -37,6 +37,7 @@
   },
   "dependencies": {
     "axios": "^0.16.2",
+    "bootstrap-css-modules": "^4.2.0",
     "classnames": "^2.2.5",
     "css-wipe": "^4.3.0",
     "lodash": "^4.17.4",

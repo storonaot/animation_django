@@ -42,56 +42,76 @@ module.exports = {
         ],
         loader: 'babel-loader'
       },
-      // {
-      //   test: /\.css$/,
-      //   use: ['style-loader', 'css-loader']
-      // },
       {
         test: /\.css$/,
-        use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: 'css-loader'
-        })
+        include: [
+          path.resolve(__dirname, 'node_modules/css-wipe')
+        ],
+        use: [
+          'style-loader',
+          'css-loader'
+        ]
       },
       {
-        test: /\.sss$/,
-        use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: [
-            { loader: 'css-loader', options: { importLoaders: 1, modules: true, localIndentName: '[name]__[local]___[hash:base64:5]' } },
-            {
-              loader: 'postcss-loader',
-              options: {
-                config: {
-                  path: './postcss.config.js'
-                }
+        test: /\.css$/,
+        exclude: [
+          path.resolve(__dirname, 'node_modules/css-wipe')
+        ],
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 1,
+              modules: true,
+              localIdentName: '[name]__[local]___[hash:base64:5]'
+            }
+          }
+        ]
+      },
+      {
+        test: /\.sss/,
+        include: [
+          path.resolve(__dirname, 'app/frontend/stylesheets')
+        ],
+        use: [
+          'style-loader',
+          'css-loader',
+          {
+            loader: 'postcss-loader',
+            options: {
+              config: {
+                path: './postcss.config.js'
               }
             }
-          ]
-        })
+          }
+        ]
       },
-      // {
-      //   test: /\.sss$/,
-      //   use: [
-      //     'style-loader',
-      //     {
-      //       loader: 'css-loader',
-      //       options: {
-      //         importLoaders: 1,
-      //         modules: true,
-      //         localIndentName: '[name]__[local]___[hash:base64:5]'
-      //       }
-      //     },
-      //     {
-      //       loader: 'postcss-loader',
-      //       options: {
-      //         config: {
-      //           path: './postcss.config.js'
-      //         }
-      //       }
-      //     }
-      //   ]
-      // },
+      {
+        test: /\.sss/,
+        exclude: [
+          path.resolve(__dirname, 'app/frontend/stylesheets')
+        ],
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 1,
+              modules: true,
+              localIdentName: '[name]__[local]___[hash:base64:5]'
+            }
+          },
+          {
+            loader: 'postcss-loader',
+            options: {
+              config: {
+                path: './postcss.config.js'
+              }
+            }
+          }
+        ]
+      },
       {
         test: /\.jpe?g$|\.gif$|\.png$|\.svg$|\.woff$|\.ttf$|\.wav$|\.mp3$/,
         use: [
@@ -133,6 +153,7 @@ module.exports = {
       filename: 'stylesheets/[name].bundle.[chunkhash].css',
       allChunks: true
     })
+    // new ExtractTextPlugin('styles.css')
     // new webpack.optimize.CommonsChunkPlugin({
     //   // filename: 'commons.[chunkhash:8].js',
     //   children: true,

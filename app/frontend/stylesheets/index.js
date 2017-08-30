@@ -1,5 +1,5 @@
 import 'css-wipe'
-import './fonts'
-import './index.css'
+// import './fonts'
+import './index.sss'
 
-import './3rdparty/flexbox-grid'
+// import './3rdparty/flexbox-grid'
