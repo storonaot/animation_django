@@ -924,10 +924,6 @@ boom@2.x.x:
   dependencies:
     hoek "2.x.x"
 
-bootstrap-css-modules@^4.2.0:
-  version "4.2.0"
-  resolved "https://registry.yarnpkg.com/bootstrap-css-modules/-/bootstrap-css-modules-4.2.0.tgz#35fcd9f623ce12d1c9aaf05686f3bd03d2adcc7b"
-
 bowser@^1.6.0:
   version "1.7.2"
   resolved "https://registry.yarnpkg.com/bowser/-/bowser-1.7.2.tgz#b94cc6925ba6b5e07c421a58e601ce4611264572"

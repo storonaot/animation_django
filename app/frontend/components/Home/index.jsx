@@ -1,18 +1,13 @@
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import { getLastShorts } from 'store/actions/shorts'
+import { getLastFullLength } from 'store/actions/fullLength'
+import { getLastDVDs } from 'store/actions/dvd'
 import Dialog from 'material-ui/Dialog'
 import FlatButton from 'material-ui/FlatButton'
 // import RaisedButton from 'material-ui/RaisedButton'
-import { btn, btnPrimary, btnLg, btnSecondary } from 'bootstrap-css-modules/css/buttons.css'
 // import Styles from 'style-loader!css-loader?modules!./styles.css';
-import { container } from 'bootstrap-css-modules/css/container.css'
-import { dropdownMenu, dropdownMenuRight, dropdownItem, dropdownToggle, show } from 'bootstrap-css-modules/css/dropdown.css'
-import { formControl, formGroup, inputGroupAddon, inputGroup, inputGroupBtn } from 'bootstrap-css-modules/css/forms.css'
 import LastAdded from './LastAdded'
-
-
-console.log('buttons', container)
 
 class Index extends React.Component {
   constructor(props) {
@@ -27,6 +22,8 @@ class Index extends React.Component {
 
   componentDidMount() {
     this.props.onGetLastShorts()
+    this.props.onGetLastFullLength()
+    this.props.onGetLastDVDs()
   }
 
   handleOpen(id) {
@@ -52,28 +49,6 @@ class Index extends React.Component {
     ]
     return (
       <div className="x-container">
-        <div className={formGroup}>
-          <label htmlFor="hhh">Hello</label>
-          <div className={inputGroup}>
-            <input id="hhh" className={formControl} />
-            <span className={inputGroupAddon}>@example.com</span>
-          </div>
-        </div>
-        <div className={inputGroup}>
-          <input type="text" className={formControl} />
-          <div className={`${inputGroupBtn} ${show}`}>
-            <button type="button" className={`${btnSecondary} ${btn} ${btnLg} ${dropdownToggle}`}>
-              Action
-            </button>
-            <div className={`${dropdownMenu} ${dropdownMenuRight} ${show}`}>
-              <a className={dropdownItem} href="/">Action</a>
-              <a className={dropdownItem} href="/">Another action</a>
-              <a className={dropdownItem} href="/">Something else here</a>
-              <a className={dropdownItem} href="/">Separated link</a>
-            </div>
-          </div>
-        </div>
-        <button className={`${btnPrimary} ${btn} ${btnLg}`}>tttt</button>
         {/* <RaisedButton label="Dialog" onClick={this.handleOpen} /> */}
         <LastAdded
           title="Короткометражки"
@@ -82,19 +57,21 @@ class Index extends React.Component {
           goToCreatePage={this.goToCreatePage}
           showMoreDetails={this.handleOpen}
         />
-        {/* <LastAdded
+        <LastAdded
           title="Полнометражки"
-          name="full-length"
-          content={this.props.lastShorts.data}
+          name="fulllength"
+          content={this.props.lastFullLength.data}
           goToCreatePage={this.goToCreatePage}
+          showMoreDetails={this.handleOpen}
         />
         <LastAdded
-          title="Серии"
-          name="serials"
-          content={this.props.lastShorts.data}
+          title="DVD"
+          name="dvds"
+          content={this.props.lastDVDs.data}
           goToCreatePage={this.goToCreatePage}
+          showMoreDetails={this.handleOpen}
         />
-        <LastAdded
+        {/* <LastAdded
           title="DVD"
           name="dvd"
           content={this.props.lastShorts.data}
@@ -117,11 +94,19 @@ class Index extends React.Component {
 export default connect(
   (state, ownProps) => ({
     lastShorts: state.lastShorts,
+    lastFullLength: state.lastFullLength,
+    lastDVDs: state.lastDVDs,
     ownProps
   }),
   dispatch => ({
     onGetLastShorts: () => {
       dispatch(getLastShorts())
+    },
+    onGetLastFullLength: () => {
+      dispatch(getLastFullLength())
+    },
+    onGetLastDVDs: () => {
+      dispatch(getLastDVDs())
     }
   })
 )(Index)
@@ -129,6 +114,14 @@ export default connect(
 Index.propTypes = {
   onGetLastShorts: PropTypes.func.isRequired,
   lastShorts: PropTypes.shape({
+    data: PropTypes.array
+  }).isRequired,
+  onGetLastFullLength: PropTypes.func.isRequired,
+  lastFullLength: PropTypes.shape({
+    data: PropTypes.array
+  }).isRequired,
+  onGetLastDVDs: PropTypes.func.isRequired,
+  lastDVDs: PropTypes.shape({
     data: PropTypes.array
   }).isRequired,
   router: PropTypes.shape({

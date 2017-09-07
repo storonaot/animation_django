@@ -11,7 +11,9 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     # url(r'^films/', include("app.urls.films", namespace='films')),
     url(r'^api/films/', include('app.api.urls.films', namespace='films-api')),
-    url(r'^api/shorts/', include('app.api.urls.shorts', namespace='films-api')),
+    url(r'^api/shorts/', include('app.api.urls.shorts', namespace='shorts-api')),
+    url(r'^api/fulllength/', include('app.api.urls.fulllength', namespace='fulllength-api')),
+    url(r'^api/dvds/', include('app.api.urls.dvd', namespace='dvd-api')),
     url(r'^api/serials/', include('app.api.urls.serials', namespace='serials-api')),
 ]
 

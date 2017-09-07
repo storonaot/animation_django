@@ -34,3 +34,7 @@ class ShortUpdateAPIView(UpdateAPIView):
 class ShortDeleteAPIView(DestroyAPIView):
     queryset = Film.objects.all()
     serializer_class = ShortDetailSerialiser
+
+class ShortLastSixAPIView(ListAPIView):
+    queryset = Film.objects.filter(Q(time_ms__lte=24000000), Q(serial__isnull=True)).order_by('-id')[:6]
+    serializer_class = ShortListSerializer

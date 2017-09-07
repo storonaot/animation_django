@@ -3,7 +3,7 @@ from app.models.film import Film
 from .audiotrack import AudiotrackSerializer
 from .videoformat import VideoformatSerializer
 from .language import LanguageSerializer
-from .dvd import DVDSerializer
+from .dvd import DVDListSerializer
 from .mediacontainer import MediacontainerSerializer
 from .country import CountrySerializer
 from .director import DirectorSerializer
@@ -33,7 +33,7 @@ class ShortDetailSerialiser(ModelSerializer):
     audiotracks = AudiotrackSerializer(many=True, read_only=True)
     videoformat = VideoformatSerializer(read_only=True)
     original_language= LanguageSerializer(read_only=True)
-    dvd = DVDSerializer(read_only=True)
+    dvd = DVDListSerializer(read_only=True)
     mediacontainer = MediacontainerSerializer(read_only=True)
     countries = CountrySerializer(many=True, read_only=True)
     directors = DirectorSerializer(many=True, read_only=True)
