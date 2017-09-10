@@ -1,50 +1,35 @@
-import PropTypes from 'prop-types'
-import { AppBar } from 'material-ui'
-import { Tabs, Tab } from 'material-ui/Tabs'
+import Container from '_shared/Container'
+import { Link } from 'react-router'
 import styles from './styles'
 
-const HeaderComp = ({ router }) => {
-  let currentTab = 0
+const Header = () => (
+  <header className={styles.header}>
+    <Container className={styles.headerContainer}>
+      <Link to="/">Logo</Link>
+      <nav>
+        <Link
+          to="shorts"
+          className={styles.menuItem}
+          activeClassName={styles.isActive}
+        >Shorts</Link>
+        <Link
+          to="full-length"
+          className={styles.menuItem}
+          activeClassName={styles.isActive}
+        >Full Length</Link>
+        <Link
+          to="serials"
+          className={styles.menuItem}
+          activeClassName={styles.isActive}
+        >Serials</Link>
+        <Link
+          to="dvd"
+          className={styles.menuItem}
+          activeClassName={styles.isActive}
+        >DVD</Link>
+      </nav>
+    </Container>
+  </header>
+)
 
-  const changeTab = (value) => {
-    currentTab = value
-    switch (value) {
-      case 0:
-        router.push('/')
-        break
-      case 1:
-        router.push('shorts')
-        break
-      case 2:
-        router.push('full-length')
-        break
-      case 3:
-        router.push('serials')
-        break
-      case 4:
-        router.push('dvd')
-        break
-      default:
-        router.push('/')
-        break
-    }
-  }
-
-  return (
-    <AppBar showMenuIconButton={false}>
-      <Tabs initialSelectedIndex={currentTab} className={styles.navigation} tabItemContainerStyle={{ height: '100%' }} onChange={changeTab}>
-        <Tab label="Home" value={0} />
-        <Tab label="Короткометражки" value={1} />
-        <Tab label="Полнометражки" value={2} />
-        <Tab label="Сериалы" value={3} />
-        <Tab label="DVD" value={4} />
-      </Tabs>
-    </AppBar>
-  )
-}
-
-HeaderComp.propTypes = {
-  router: PropTypes.shape({}).isRequired
-}
-
-export default HeaderComp
+export default Header

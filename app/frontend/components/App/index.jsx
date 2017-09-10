@@ -1,29 +1,20 @@
-import HeaderComp from 'Header'
-import PropTypes from 'prop-types'
-import { Grid } from 'react-flexbox-grid'
-import { MuiThemeProvider } from 'material-ui/styles'
-import getMuiTheme from 'material-ui/styles/getMuiTheme'
-import BreadCrumbs from '_shared/BreadCrumbs'
-import muiTheme from '../../javascripts/muiTheme'
+import Header from 'Header'
+import Footer from 'Footer'
+import styles from './styles'
 
-const App = ({ children, router }) => {
-  const crumbs = router.getCurrentLocation().pathname.split('/')
-  return (
-    <MuiThemeProvider muiTheme={getMuiTheme(muiTheme)}>
-      <div>
-        <HeaderComp router={router} />
-        <Grid fluid>
-          <BreadCrumbs crumbs={crumbs} />
-          {children}
-        </Grid>
-      </div>
-    </MuiThemeProvider>
-  )
-}
+const App = ({ children }) => (
+  <div className={styles.bodyWrapper}>
+    <Header />
+    <main className={styles.mainWrapper}>{children}</main>
+    <Footer />
+  </div>
+)
 
 App.propTypes = {
-  children: PropTypes.shape({}).isRequired,
-  router: PropTypes.shape({}).isRequired
+  children: PropTypes.oneOfType([
+    PropTypes.element,
+    PropTypes.arrayOf(PropTypes.element)
+  ]).isRequired
 }
 
 export default App
