@@ -138,7 +138,8 @@ module.exports = {
     new webpack.ProvidePlugin({
       React: 'react',
       _: 'lodash',
-      axios: 'axios'
+      axios: 'axios',
+      PropTypes: 'prop-types'
     }),
     new webpack.NoEmitOnErrorsPlugin(),
     new BundleTracker({

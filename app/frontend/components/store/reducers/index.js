@@ -4,12 +4,16 @@ import { routerReducer } from 'react-router-redux'
 import lastShorts from './lastShorts'
 import lastFullLength from './lastFullLength'
 import lastDVDs from './lastDVDs'
+import lastEpisodes from './lastEpisodes'
+import shorts from './shorts'
 
 export default combineReducers({
   routing: routerReducer,
   lastShorts,
   lastFullLength,
-  lastDVDs
+  lastDVDs,
+  lastEpisodes,
+  shorts
 })
 
 

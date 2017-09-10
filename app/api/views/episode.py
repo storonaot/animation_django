@@ -6,9 +6,9 @@ from rest_framework.generics import(
     UpdateAPIView,
     DestroyAPIView
     )
-from app.models.dvd import DVD
-from app.api.serializers.dvd import (
-    DVDListSerializer,
+from app.models.film import Film
+from app.api.serializers.episode import (
+    EpisodeListSerializer,
     )
 #
 # class FullLengthListAPIView(ListAPIView):
@@ -33,6 +33,6 @@ from app.api.serializers.dvd import (
 #     queryset = Film.objects.all()
 #     serializer_class = FullLengthDetailSerialiser
 #
-class DVDLastSixAPIView(ListAPIView):
-    queryset = DVD.objects.all().order_by('-id')[:6]
-    serializer_class = DVDListSerializer
+class EpisodeLastSixAPIView(ListAPIView):
+    queryset = Film.objects.filter(Q(serial__isnull=False)).order_by('-id')[:6]
+    serializer_class = EpisodeListSerializer

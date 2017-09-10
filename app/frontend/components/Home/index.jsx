@@ -2,7 +2,8 @@ import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import { getLastShorts } from 'store/actions/shorts'
 import { getLastFullLength } from 'store/actions/fullLength'
-import { getLastDVDs } from 'store/actions/dvd'
+import { getLastDVDs } from 'store/actions/dvds'
+import { getLastEpisodes } from 'store/actions/episodes'
 import Dialog from 'material-ui/Dialog'
 import FlatButton from 'material-ui/FlatButton'
 // import RaisedButton from 'material-ui/RaisedButton'
@@ -24,6 +25,7 @@ class Index extends React.Component {
     this.props.onGetLastShorts()
     this.props.onGetLastFullLength()
     this.props.onGetLastDVDs()
+    this.props.onGetLastEpisodes()
   }
 
   handleOpen(id) {
@@ -59,24 +61,24 @@ class Index extends React.Component {
         />
         <LastAdded
           title="Полнометражки"
-          name="fulllength"
+          name="full-length"
           content={this.props.lastFullLength.data}
           goToCreatePage={this.goToCreatePage}
           showMoreDetails={this.handleOpen}
         />
         <LastAdded
           title="DVD"
-          name="dvds"
+          name="dvd"
           content={this.props.lastDVDs.data}
           goToCreatePage={this.goToCreatePage}
           showMoreDetails={this.handleOpen}
         />
-        {/* <LastAdded
-          title="DVD"
-          name="dvd"
-          content={this.props.lastShorts.data}
+        <LastAdded
+          title="Эпизоды"
+          name="serials"
+          content={this.props.lastEpisodes.data}
           goToCreatePage={this.goToCreatePage}
-        /> */}
+        />
         <Dialog
           title="Dialog With Actions"
           actions={actions}
@@ -96,6 +98,7 @@ export default connect(
     lastShorts: state.lastShorts,
     lastFullLength: state.lastFullLength,
     lastDVDs: state.lastDVDs,
+    lastEpisodes: state.lastEpisodes,
     ownProps
   }),
   dispatch => ({
@@ -107,6 +110,9 @@ export default connect(
     },
     onGetLastDVDs: () => {
       dispatch(getLastDVDs())
+    },
+    onGetLastEpisodes: () => {
+      dispatch(getLastEpisodes())
     }
   })
 )(Index)
@@ -122,6 +128,10 @@ Index.propTypes = {
   }).isRequired,
   onGetLastDVDs: PropTypes.func.isRequired,
   lastDVDs: PropTypes.shape({
+    data: PropTypes.array
+  }).isRequired,
+  onGetLastEpisodes: PropTypes.func.isRequired,
+  lastEpisodes: PropTypes.shape({
     data: PropTypes.array
   }).isRequired,
   router: PropTypes.shape({

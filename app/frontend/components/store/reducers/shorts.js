@@ -4,17 +4,17 @@ const defaultState = {
   data: []
 }
 
-export default function lastEpisodes(state = defaultState, action) {
+export default function shorts(state = defaultState, action) {
   switch (action.type) {
-    case 'FETCH_LASTEPISODES_ONLOAD':
-      return { loading: true }
-    case 'FETCH_LASTEPISODES_SUCCESS':
+    case 'FETCH_SHORTS_ONLOAD':
+      return { ...state, loading: true }
+    case 'FETCH_SHORTS_SUCCESS':
       return {
         loading: false,
         data: action.payload,
         errors: null
       }
-    case 'FETCH_LASTEPISODES_ERROR':
+    case 'FETCH_SHORTS_ERROR':
       return { loading: false, data: null, errors: action.payload }
     default:
       return state

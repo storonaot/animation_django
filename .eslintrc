@@ -23,7 +23,8 @@
   "globals": {
     "React": true,
     "axios": true,
-    "_": true
+    "_": true,
+    "PropTypes": true
   },
   "plugins": [
     "react"

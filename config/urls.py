@@ -13,7 +13,8 @@ urlpatterns = [
     url(r'^api/films/', include('app.api.urls.films', namespace='films-api')),
     url(r'^api/shorts/', include('app.api.urls.shorts', namespace='shorts-api')),
     url(r'^api/fulllength/', include('app.api.urls.fulllength', namespace='fulllength-api')),
-    url(r'^api/dvds/', include('app.api.urls.dvd', namespace='dvd-api')),
+    url(r'^api/dvds/', include('app.api.urls.dvd', namespace='dvds-api')),
+    url(r'^api/episodes/', include('app.api.urls.episode', namespace='episodes-api')),
     url(r'^api/serials/', include('app.api.urls.serials', namespace='serials-api')),
 ]
 
