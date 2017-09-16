@@ -7,7 +7,7 @@ const defaultState = {
 export default function lastShorts(state = defaultState, action) {
   switch (action.type) {
     case 'FETCH_LASTSHORTS_ONLOAD':
-      return { loading: true }
+      return { ...state, loading: true }
     case 'FETCH_LASTSHORTS_SUCCESS':
       return {
         loading: false,

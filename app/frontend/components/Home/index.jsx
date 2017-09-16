@@ -1,20 +1,88 @@
-import Container from '_shared/Container'
-import Row from '_shared/Row'
+import { connect } from 'react-redux'
+import { getLastShorts } from 'store/actions/shorts'
+import { Container, Row, Title, Divider, Preloader, Error } from '_shared'
+import LastAdded from './LastAdded'
 
+class Index extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {}
+  }
 
-const Index = () => (
-  <Container>
-    <Row>
-      <div>Hi</div>
-      <div>Hi</div>
-      <div>Hi</div>
-      <div>Hi</div>
-    </Row>
-    <Row><div>Hi</div></Row>
-  </Container>
-)
+  componentDidMount() {
+    this.props.onGetLastShorts()
+  }
 
-export default Index
+  render() {
+    console.log(this.props)
+    if (this.props.lastShorts.loading) {
+      return <Preloader />
+    } else if (this.props.lastShorts.errors) {
+      return <Error />
+    }
+    return (
+      <Container>
+        <Row>
+          <Title type="h2">Последние добавленные</Title>
+        </Row>
+        <Row>
+          <Title handleClick={() => {}}>Короткометражки</Title>
+          <Divider />
+          <LastAdded
+            films={this.props.lastShorts.data}
+            type="shorts"
+          />
+        </Row>
+        <Row>
+          <Title handleClick={() => {}}>Полнометражки</Title>
+          <Divider />
+          <div>Hi</div>
+        </Row>
+      </Container>
+    )
+  }
+}
+
+export default connect(
+  (state, ownProps) => ({
+    lastShorts: state.lastShorts,
+    ownProps
+  }),
+  dispatch => ({
+    onGetLastShorts: () => {
+      dispatch(getLastShorts())
+    }
+  })
+)(Index)
+
+Index.propTypes = {
+  onGetLastShorts: PropTypes.func.isRequired,
+  lastShorts: PropTypes.shape({
+    loading: PropTypes.bool,
+    data: PropTypes.array,
+    errors: PropTypes.shape({})
+  }).isRequired
+}
+
+// const Index = () => (
+//   <Container>
+//     <Row>
+//       <Title type="h2">Последние добавленные</Title>
+//     </Row>
+//     <Row>
+//       <Title>Короткометражки</Title>
+//       <Divider />
+//       <LastAdded />
+//     </Row>
+//     <Row>
+//       <Title>Полнометражки</Title>
+//       <Divider />
+//       <div>Hi</div>
+//     </Row>
+//   </Container>
+// )
+
+// export default Index
 
 // import { connect } from 'react-redux'
 // import PropTypes from 'prop-types'
