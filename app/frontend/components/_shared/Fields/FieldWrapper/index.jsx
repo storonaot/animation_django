@@ -1,4 +1,4 @@
-import styles from '../styles'
+import styles from './styles'
 
 const FieldWrapper = ({ children }) => (
   <div className={styles.fieldWrapper}>{children}</div>

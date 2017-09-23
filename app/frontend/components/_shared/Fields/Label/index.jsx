@@ -1,5 +1,10 @@
+import styles from './styles'
+
 const Label = ({ label, fieldId }) => (
-  <label htmlFor={fieldId}>{label}</label>
+  <label
+    htmlFor={fieldId}
+    className={styles.label}
+  >{label}</label>
 )
 
 Label.propTypes = {

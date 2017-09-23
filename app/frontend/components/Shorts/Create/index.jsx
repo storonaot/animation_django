@@ -1,21 +1,20 @@
-import { Container, Row, Input } from '_shared'
+import { Container, Row, Input, TimeInput } from '_shared'
 
 class ShortsCreate extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
       title: '',
+      time: '',
       originalTitle: '',
-      description: '',
-      hours: '',
-      minutes: '',
-      seconds: ''
+      description: ''
     }
 
     this.updateValue = this.updateValue.bind(this)
   }
 
   updateValue(name, value) {
+    console.log(name, value)
     this.setState({ [name]: value })
   }
 
@@ -28,6 +27,12 @@ class ShortsCreate extends React.Component {
               label="Title"
               name="title"
               value={this.state.title}
+              handleInput={this.updateValue}
+            />
+            <TimeInput
+              label="Time"
+              name="time"
+              value={{}}
               handleInput={this.updateValue}
             />
           </form>

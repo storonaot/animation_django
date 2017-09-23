@@ -6,5 +6,9 @@ import Divider from './Divider'
 import Error from './Error'
 import Preloader from './Preloader'
 import Input from './Fields/Input'
+import TimeInput from './Fields/TimeInput'
 
-export { BreadCrumbs, Container, Row, Title, Divider, Error, Preloader, Input }
+export {
+  BreadCrumbs, Container, Row, Title, Divider, Error, Preloader, Input,
+  TimeInput
+}
